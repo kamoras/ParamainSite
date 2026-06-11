@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/kamoras/ParamainSite/discussions
+    about: Questions, ideas, and general conversation.
+  - name: 📧 Email us
+    url: mailto:hello@paramain.com
+    about: Prefer to reach out privately? We're happy to chat.
