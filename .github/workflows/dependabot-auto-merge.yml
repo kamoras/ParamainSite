@@ -1,9 +1,10 @@
 name: Dependabot auto-merge
 
-# Automatically approves and enables auto-merge on Dependabot PRs.
-# Auto-merge only completes once every required status check (the `verify`
-# job in ci.yml) passes — so nothing lands unless our rigorous quality gate
-# (format, lint, type-check, build) is green.
+# Fully autonomous dependency updates: every Dependabot PR is approved and set
+# to auto-merge. The merge only completes once every required status check
+# (the `verify` job in ci.yml — format, lint, type-check, build) passes, so
+# our rigorous quality gate is the single thing standing between an update and
+# `main`. Nothing green-lights itself without passing CI.
 
 on: pull_request_target
 
@@ -29,30 +30,8 @@ jobs:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Patch & minor updates: fully autonomous — auto-merge once CI is green.
-      # Major updates: auto-merge dev dependencies, but hold production majors
-      # for a human glance (flip the condition below to go fully autonomous).
-      - name: Enable auto-merge
-        if: >-
-          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
-          steps.meta.outputs.update-type == 'version-update:semver-minor' ||
-          (steps.meta.outputs.update-type == 'version-update:semver-major' &&
-           steps.meta.outputs.dependency-type == 'direct:development')
+      - name: Enable auto-merge (gated on required CI checks)
         run: gh pr merge --auto --squash "$PR_URL"
-        env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Flag production major updates for review
-        if: >-
-          steps.meta.outputs.update-type == 'version-update:semver-major' &&
-          steps.meta.outputs.dependency-type == 'direct:production'
-        run: |
-          gh label create "needs-review" --color FBCA04 \
-            --description "Held for human review" --force
-          gh pr edit "$PR_URL" --add-label "needs-review"
-          gh pr comment "$PR_URL" --body \
-            "🔍 This is a **major** update to a production dependency. CI will still run, but auto-merge is held for a human review. Approve and merge manually once you're happy."
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -11,6 +11,11 @@ updates:
         dependency-type: development
     open-pull-requests-limit: 10
     labels: ["dependencies"]
+    ignore:
+      # ESLint 10 isn't yet supported by eslint-config-next (Next 16 is
+      # validated against ESLint 9). Unpin once support lands.
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: "/"

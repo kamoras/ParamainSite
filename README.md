@@ -118,14 +118,12 @@ or use the form on the site.
 - **Dependabot** ([`dependabot.yml`](.github/dependabot.yml)) opens grouped
   dependency PRs weekly;
   [`dependabot-auto-merge.yml`](.github/workflows/dependabot-auto-merge.yml)
-  approves and auto-merges them **once CI is green** (patch/minor and dev-dep
-  majors fully autonomous; production majors are held for a human glance).
+  approves them and enables auto-merge so they land **automatically once CI is
+  green** — no human in the loop unless a check fails.
 
-> **One-time GitHub setup** to make auto-merge fully autonomous: in
-> **Settings → General**, enable _Allow auto-merge_ and _Allow GitHub Actions to
-> create and approve pull requests_; in **Settings → Branches**, add a rule
-> protecting `main` that requires the **`Lint, type-check & build`** status
-> check to pass.
+The required GitHub settings (auto-merge, Actions PR approval, and a branch
+protection rule on `main` requiring the **`Lint, type-check & build`** check)
+are already configured on this repository.
 
 ## License
 
