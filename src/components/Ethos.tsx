@@ -8,7 +8,7 @@ const principles = [
   },
   {
     title: "Open by default",
-    body: "Code in the open, so anyone can read it, learn from it, fork it, or improve it. Transparency is a feature.",
+    body: "Code in the open, so anyone can read it, learn from it, or improve it. Where it can't be open, it stays free and yours.",
     icon: "code",
   },
   {

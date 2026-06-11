@@ -51,7 +51,7 @@ export const apps: ParamainApp[] = [
     description:
       "Everything you love about a link-in-bio page, with none of the lock-in. Self-host it or run it free — own your links, your data, and your audience. A genuine open alternative to the usual suspects.",
     url: "https://linkertree.paramain.com",
-    repo: "https://github.com/paramain/linkertree",
+    repo: "https://github.com/kamoras/linkertree",
     source: "open",
     status: "live",
     category: "Creator tools",
@@ -66,7 +66,7 @@ export const apps: ParamainApp[] = [
     description:
       "One fresh music puzzle every day. Splice the clips, name the track, share your streak. No ads, no tracking, no paywall — just a small, joyful ritual that respects your attention.",
     url: "https://spliced.paramain.com",
-    repo: "https://github.com/paramain/spliced",
+    repo: "https://github.com/kamoras/spliced",
     source: "open",
     status: "live",
     category: "Games & play",
@@ -81,7 +81,7 @@ export const apps: ParamainApp[] = [
     description:
       "A free, open-source toolkit for Twitch streamers playing Dead by Daylight. Run a viewer queue so your community can jump into the match on stream, plus the small utilities that make playing with chat effortless.",
     url: "https://deadbydaylight-manager.paramain.com",
-    repo: "https://github.com/paramain/deadbydaylight-manager",
+    repo: "https://github.com/kamoras/deadbydaylight-manager",
     source: "open",
     status: "live",
     category: "Streaming tools",

@@ -7,7 +7,7 @@
 **Software should be accessible to everyone.**
 
 The showcase site for [Paramain](https://paramain.com) — a portfolio of free,
-open-source apps built in the open, with no ads, no lock-in, and no
+independent apps. Open source by default, with no ads, no lock-in, and no
 surveillance.
 
 [![Built with Next.js](https://img.shields.io/badge/Next.js-16-000?logo=next.js)](https://nextjs.org)

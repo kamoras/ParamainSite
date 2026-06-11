@@ -8,7 +8,7 @@ it responsibly.
 
 **Please do _not_ open a public issue for security problems.**
 
-Instead, email **[security@paramain.com](mailto:security@paramain.com)** with:
+Instead, email **[mack.ryanm@gmail.com](mailto:mack.ryanm@gmail.com)** with:
 
 - A description of the issue and its potential impact
 - Steps to reproduce

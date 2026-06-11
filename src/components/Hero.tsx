@@ -13,7 +13,7 @@ export function Hero() {
           style={{ animationDelay: "60ms" }}
         >
           <span className="bg-sage inline-flex h-2 w-2 rounded-full" />A
-          portfolio of free, open-source apps
+          portfolio of free, independent apps
         </p>
 
         <h1
@@ -32,9 +32,9 @@ export function Hero() {
           className="reveal text-ink-soft mt-7 max-w-xl text-lg leading-relaxed"
           style={{ animationDelay: "230ms" }}
         >
-          {site.name} is a small workshop of useful tools — built in the open,
-          free to use, and made to respect the people who use them. No ads, no
-          lock-in, no surveillance.
+          {site.name} is a small workshop of useful tools — free to use,
+          privacy-first, and made to respect the people who use them. Open
+          source by default. No ads, no lock-in, no surveillance.
         </p>
 
         <div

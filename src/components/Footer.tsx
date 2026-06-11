@@ -15,8 +15,8 @@ export function Footer() {
               </span>
             </div>
             <p className="text-ink-soft mt-4 text-[0.95rem] leading-relaxed">
-              {site.tagline} A small workshop of free, open-source tools made to
-              respect the people who use them.
+              {site.tagline} A small workshop of free, independent tools made to
+              respect the people who use them — open source by default.
             </p>
           </div>
 

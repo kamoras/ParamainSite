@@ -7,7 +7,9 @@ const display = Fraunces({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  axes: ["opsz", "SOFT", "WONK"],
+  // opsz only — keep optical sizing for crisp headings, but no WONK/SOFT
+  // axes so the serifs stay clean and even (not wiggly).
+  axes: ["opsz"],
 });
 
 const sans = Hanken_Grotesk({
