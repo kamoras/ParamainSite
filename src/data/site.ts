@@ -9,4 +9,6 @@ export const site = {
   ideasRepo: "https://github.com/kamoras/ParamainSite",
   github: "https://github.com/kamoras",
   email: "mack.ryanm@gmail.com",
+  author: "Ryan Mack",
+  authorUrl: "https://ryan-mack.dev",
 } as const;

@@ -71,6 +71,16 @@ export function Footer() {
                   {site.email}
                 </a>
               </li>
+              <li>
+                <a
+                  href={site.authorUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-ink hover:text-terracotta text-[0.95rem] transition-colors"
+                >
+                  ryan-mack.dev ↗
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -85,7 +95,15 @@ export function Footer() {
             <span aria-hidden="true" className="text-terracotta">
               ◇
             </span>
-            for everyone
+            by{" "}
+            <a
+              href={site.authorUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-ink hover:text-terracotta font-medium underline-offset-4 transition-colors hover:underline"
+            >
+              {site.author}
+            </a>
           </p>
         </div>
       </div>
