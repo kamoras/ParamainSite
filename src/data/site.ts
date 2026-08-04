@@ -3,8 +3,9 @@ export const site = {
   domain: "paramain.com",
   url: "https://paramain.com",
   tagline: "Software should be accessible to everyone.",
+  /** Kept under ~160 characters so search engines show it without truncating. */
   description:
-    "Paramain is a portfolio of free, independent apps built on a simple belief: good software should belong to everyone. Open source by default, free and privacy-first always — no ads, no lock-in, no surveillance.",
+    "A portfolio of free, independent apps led by Civitas — open-source political transparency powered by local AI. No ads, no lock-in, no surveillance.",
   /** Used by the suggest-an-app form to open a prefilled issue. */
   ideasRepo: "https://github.com/kamoras/ParamainSite",
   github: "https://github.com/kamoras",

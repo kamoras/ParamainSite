@@ -7,8 +7,8 @@
 **Software should be accessible to everyone.**
 
 The showcase site for [Paramain](https://paramain.com) — a portfolio of free,
-independent apps. Open source by default, with no ads, no lock-in, and no
-surveillance.
+independent apps led by [Civitas](https://civitas-research.org). Open source all
+the way down, with no ads, no lock-in, and no surveillance.
 
 [![Built with Next.js](https://img.shields.io/badge/Next.js-16-000?logo=next.js)](https://nextjs.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38bdf8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
@@ -30,17 +30,30 @@ site that ties the portfolio together. It's intentionally a complete,
 professional, open-source project — fork it, learn from it, or use it as a
 template for your own portfolio.
 
-### The apps it features
+### The flagship
+
+**[Civitas](https://civitas-research.org)** — `civitas-research.org` — is the
+project the site is built around. It's a political transparency platform that
+runs open-weight models locally on a Raspberry Pi, distilling public records and
+legislative activity into plain language. Originally closed source, it is now
+**fully open source**: [`kamoras/civitas`](https://github.com/kamoras/civitas).
+
+On the site it gets its own feature panel above the rest of the portfolio (see
+[`FeaturedApp.tsx`](src/components/FeaturedApp.tsx)).
+
+### The rest of the shelf
+
+Smaller side projects, shown as grid cards below the flagship:
 
 | App                                                        | What it is                                                                            | Source |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------ |
-| [Civitas](https://civitas.paramain.com)                    | Political transparency, powered by open-weight AI running locally on a Raspberry Pi.  | Closed |
 | [Linkertree](https://linkertree.paramain.com)              | A free, open-source link-in-bio with no lock-in.                                      | Open   |
 | [Spliced](https://spliced.paramain.com)                    | A daily music puzzle — no ads, ever.                                                  | Open   |
 | [DBD Manager](https://deadbydaylight-manager.paramain.com) | Stream utilities (like a viewer queue) for Twitch streamers playing Dead by Daylight. | Open   |
 
 > Adding or updating an app is a one-file change: edit
-> [`src/data/apps.ts`](src/data/apps.ts).
+> [`src/data/apps.ts`](src/data/apps.ts). Set `featured: true` on exactly one
+> app to give it the flagship panel.
 
 ## Tech stack
 

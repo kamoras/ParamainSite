@@ -42,6 +42,8 @@ function StructuredData() {
         description: app.tagline,
         url: app.url,
         applicationCategory: app.category,
+        isAccessibleForFree: true,
+        ...(app.repo ? { codeRepository: app.repo } : {}),
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       },
     })),

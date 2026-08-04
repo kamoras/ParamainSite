@@ -2,6 +2,13 @@ export type AppStatus = "live" | "beta" | "soon";
 
 export type AppSource = "open" | "closed";
 
+/** Human labels for the lifecycle badge, shared by every card that shows one. */
+export const STATUS_LABEL: Record<AppStatus, string> = {
+  live: "Live",
+  beta: "Beta",
+  soon: "Coming soon",
+};
+
 export interface ParamainApp {
   /** Stable slug, also used as a React key and anchor id. */
   slug: string;
@@ -27,6 +34,13 @@ export interface ParamainApp {
   monogram: string;
   /** Accent theme key — see ACCENTS in components. */
   accent: "terracotta" | "amber" | "sage" | "plum" | "teal";
+  /**
+   * The flagship. Exactly one app should carry this — it gets the large
+   * feature panel at the top of the portfolio instead of a grid card.
+   */
+  featured?: boolean;
+  /** Feature-panel only: a few short "at a glance" facts. */
+  highlights?: { label: string; value: string }[];
 }
 
 export const apps: ParamainApp[] = [
@@ -35,14 +49,22 @@ export const apps: ParamainApp[] = [
     name: "Civitas",
     tagline: "Political transparency, powered by local AI",
     description:
-      "A political transparency platform that runs open-weight models locally on a Raspberry Pi — no cloud, no surveillance, no gatekeepers. It distills public records and legislative activity into plain language so anyone can hold power to account.",
-    url: "https://civitas.paramain.com",
-    source: "closed",
+      "The project everything else here orbits. Civitas distills public records and legislative activity into plain language so anyone can hold power to account — running open-weight models locally on a Raspberry Pi, with no cloud, no surveillance, and no gatekeepers. It started life closed source; it's now open, end to end, so the pipeline that shapes what you read is auditable by anyone who cares to look.",
+    url: "https://civitas-research.org",
+    repo: "https://github.com/kamoras/civitas",
+    source: "open",
     status: "live",
     category: "Civic tech",
     tags: ["Local AI", "Open weights", "Raspberry Pi", "Transparency"],
     monogram: "Cv",
     accent: "terracotta",
+    featured: true,
+    highlights: [
+      { label: "Runs on", value: "A Raspberry Pi in a spare room" },
+      { label: "Models", value: "Open weights, entirely local" },
+      { label: "Source", value: "Open — every line of it" },
+      { label: "Cost", value: "$0, no ads, no accounts" },
+    ],
   },
   {
     slug: "linkertree",
@@ -90,3 +112,18 @@ export const apps: ParamainApp[] = [
     accent: "plum",
   },
 ];
+
+/** The flagship, given the feature panel at the top of the portfolio. */
+export const featuredApp = apps.find((app) => app.featured);
+
+/**
+ * Everything else — the smaller side projects, shown as grid cards. Compared
+ * against the resolved flagship rather than the `featured` flag, so a stray
+ * second `featured: true` still renders as a card instead of vanishing.
+ */
+export const otherApps = apps.filter((app) => app !== featuredApp);
+
+/** `civitas-research.org` from `https://civitas-research.org` — for display. */
+export function displayDomain(url: string): string {
+  return new URL(url).host.replace(/^www\./, "");
+}

@@ -1,18 +1,13 @@
-import type { ParamainApp } from "@/data/apps";
+import { STATUS_LABEL, type ParamainApp } from "@/data/apps";
 import { ACCENTS } from "./accents";
-
-const STATUS_LABEL: Record<ParamainApp["status"], string> = {
-  live: "Live",
-  beta: "Beta",
-  soon: "Coming soon",
-};
 
 export function AppCard({ app }: { app: ParamainApp }) {
   const accent = ACCENTS[app.accent];
 
   return (
     <article
-      className="group rounded-card border-line bg-surface shadow-soft hover:shadow-lift relative flex flex-col overflow-hidden border p-7 transition-all duration-300 hover:-translate-y-1"
+      id={app.slug}
+      className="group rounded-card border-line bg-surface shadow-soft hover:shadow-lift relative flex scroll-mt-24 flex-col overflow-hidden border p-7 transition-all duration-300 hover:-translate-y-1"
       style={
         {
           "--accent": accent.color,

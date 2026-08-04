@@ -16,7 +16,8 @@ export function Footer() {
             </div>
             <p className="text-ink-soft mt-4 text-[0.95rem] leading-relaxed">
               {site.tagline} A small workshop of free, independent tools made to
-              respect the people who use them — open source by default.
+              respect the people who use them — open source, all the way down,
+              and led by Civitas.
             </p>
           </div>
 
@@ -26,7 +27,7 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2.5">
               {apps.map((app) => (
-                <li key={app.slug}>
+                <li key={app.slug} className="flex items-center gap-2">
                   <a
                     href={app.url}
                     target="_blank"
@@ -35,6 +36,11 @@ export function Footer() {
                   >
                     {app.name}
                   </a>
+                  {app.featured ? (
+                    <span className="bg-terracotta-soft text-terracotta rounded-full px-2 py-0.5 text-[0.65rem] font-semibold tracking-[0.1em] uppercase">
+                      Flagship
+                    </span>
+                  ) : null}
                 </li>
               ))}
             </ul>
