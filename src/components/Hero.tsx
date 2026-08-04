@@ -4,7 +4,7 @@ import { site } from "@/data/site";
 export function Hero() {
   const liveCount = apps.filter((a) => a.status === "live").length;
   const openCount = apps.filter((a) => a.source === "open").length;
-  const allOpen = openCount === apps.length;
+  const allOpen = apps.length > 0 && openCount === apps.length;
 
   return (
     <section className="relative overflow-hidden">
@@ -96,9 +96,15 @@ export function Hero() {
   );
 }
 
-/** Drops a tagline mid-sentence without flattening acronyms like "AI". */
+/**
+ * Drops a tagline into the middle of a sentence. Only decapitalises an
+ * ordinary sentence-case word, so a tagline opening on an acronym ("AI for
+ * everyone") is left alone rather than mangled into "aI for everyone".
+ */
 function lowerFirst(text: string): string {
-  return text.charAt(0).toLowerCase() + text.slice(1);
+  return /^[A-Z][a-z]/.test(text)
+    ? text.charAt(0).toLowerCase() + text.slice(1)
+    : text;
 }
 
 function Stat({ value, label }: { value: string; label: string }) {

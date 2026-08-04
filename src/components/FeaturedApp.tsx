@@ -1,4 +1,4 @@
-import { displayDomain, type ParamainApp } from "@/data/apps";
+import { displayDomain, STATUS_LABEL, type ParamainApp } from "@/data/apps";
 import { ACCENTS } from "./accents";
 
 /**
@@ -41,10 +41,8 @@ export function FeaturedApp({ app }: { app: ParamainApp }) {
               <Star className="h-3.5 w-3.5" />
               The flagship
             </span>
-            <StatusBadge />
-            <span className="bg-sage-soft text-sage inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold">
-              Open source
-            </span>
+            <StatusBadge status={app.status} />
+            <SourceBadge source={app.source} />
           </div>
 
           <div className="mt-8 flex items-start gap-5">
@@ -105,6 +103,7 @@ export function FeaturedApp({ app }: { app: ParamainApp }) {
               >
                 <GithubIcon className="h-4 w-4" />
                 Read the source
+                <span className="sr-only">for {app.name}</span>
               </a>
             ) : null}
           </div>
@@ -129,11 +128,29 @@ export function FeaturedApp({ app }: { app: ParamainApp }) {
   );
 }
 
-function StatusBadge() {
+function StatusBadge({ status }: { status: ParamainApp["status"] }) {
+  const dot =
+    status === "live" ? "bg-sage" : status === "beta" ? "bg-amber" : "bg-muted";
   return (
     <span className="border-line bg-canvas text-ink-soft inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium">
-      <span className="bg-sage h-1.5 w-1.5 rounded-full" />
-      Live
+      <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
+      {STATUS_LABEL[status]}
+    </span>
+  );
+}
+
+function SourceBadge({ source }: { source: ParamainApp["source"] }) {
+  const isOpen = source === "open";
+  return (
+    <span
+      className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold"
+      style={{
+        background: isOpen ? "var(--color-sage-soft)" : "var(--color-line)",
+        color: isOpen ? "var(--color-sage)" : "var(--color-ink-soft)",
+      }}
+      title={isOpen ? "Open source" : "Source not public"}
+    >
+      {isOpen ? "Open source" : "Closed source"}
     </span>
   );
 }

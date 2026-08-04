@@ -1,11 +1,5 @@
-import type { ParamainApp } from "@/data/apps";
+import { STATUS_LABEL, type ParamainApp } from "@/data/apps";
 import { ACCENTS } from "./accents";
-
-const STATUS_LABEL: Record<ParamainApp["status"], string> = {
-  live: "Live",
-  beta: "Beta",
-  soon: "Coming soon",
-};
 
 export function AppCard({ app }: { app: ParamainApp }) {
   const accent = ACCENTS[app.accent];

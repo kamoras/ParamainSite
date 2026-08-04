@@ -2,6 +2,13 @@ export type AppStatus = "live" | "beta" | "soon";
 
 export type AppSource = "open" | "closed";
 
+/** Human labels for the lifecycle badge, shared by every card that shows one. */
+export const STATUS_LABEL: Record<AppStatus, string> = {
+  live: "Live",
+  beta: "Beta",
+  soon: "Coming soon",
+};
+
 export interface ParamainApp {
   /** Stable slug, also used as a React key and anchor id. */
   slug: string;
@@ -109,8 +116,12 @@ export const apps: ParamainApp[] = [
 /** The flagship, given the feature panel at the top of the portfolio. */
 export const featuredApp = apps.find((app) => app.featured);
 
-/** Everything else — the smaller side projects, shown as grid cards. */
-export const otherApps = apps.filter((app) => !app.featured);
+/**
+ * Everything else — the smaller side projects, shown as grid cards. Compared
+ * against the resolved flagship rather than the `featured` flag, so a stray
+ * second `featured: true` still renders as a card instead of vanishing.
+ */
+export const otherApps = apps.filter((app) => app !== featuredApp);
 
 /** `civitas-research.org` from `https://civitas-research.org` — for display. */
 export function displayDomain(url: string): string {

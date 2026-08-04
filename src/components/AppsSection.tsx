@@ -27,15 +27,28 @@ export function AppsSection() {
           </>
         ) : null}
 
-        <div className="mt-24 max-w-2xl sm:mt-32">
-          <SectionLabel>Also on the shelf</SectionLabel>
+        <div className={`max-w-2xl ${featuredApp ? "mt-24 sm:mt-32" : ""}`}>
+          <SectionLabel>
+            {featuredApp ? "Also on the shelf" : "The portfolio"}
+          </SectionLabel>
           <h2 className="font-display mt-4 text-[clamp(1.75rem,3.5vw,2.5rem)] leading-[1.1] font-light tracking-[-0.02em]">
-            Smaller things, built along the way.
+            {featuredApp
+              ? "Smaller things, built along the way."
+              : "Small tools, built with care."}
           </h2>
           <p className="text-ink-soft mt-5 text-lg leading-relaxed">
-            Side projects and weekend tools. Each one scratches a specific itch,
-            and each one is free and open source — but they&apos;re the extras,
-            not the main course.
+            {featuredApp ? (
+              <>
+                Side projects and weekend tools. Each one scratches a specific
+                itch, and each one is free and open source — but they&apos;re
+                the extras, not the main course.
+              </>
+            ) : (
+              <>
+                Each one solves a real problem and gives it away free. Every one
+                is open source; all of them put you first.
+              </>
+            )}
           </p>
         </div>
 
