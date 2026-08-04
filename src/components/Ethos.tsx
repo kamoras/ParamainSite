@@ -7,8 +7,8 @@ const principles = [
     icon: "gift",
   },
   {
-    title: "Open by default",
-    body: "Code in the open, so anyone can read it, learn from it, or improve it. Where it can't be open, it stays free and yours.",
+    title: "Open, all the way down",
+    body: "Every app here is open source — Civitas included, which spent its early life closed. If a tool asks for your trust, you should be able to read how it works.",
     icon: "code",
   },
   {
@@ -17,8 +17,8 @@ const principles = [
     icon: "shield",
   },
   {
-    title: "Built to be useful",
-    body: "Every app earns its place by solving a real, specific problem — and doing that one thing genuinely well.",
+    title: "One thing done properly",
+    body: "Civitas gets the lion's share of the effort; the rest are small tools that each solve one real problem and then get out of the way.",
     icon: "wrench",
   },
 ];

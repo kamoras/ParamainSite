@@ -1,9 +1,10 @@
-import { apps } from "@/data/apps";
+import { apps, displayDomain, featuredApp } from "@/data/apps";
 import { site } from "@/data/site";
 
 export function Hero() {
   const liveCount = apps.filter((a) => a.status === "live").length;
   const openCount = apps.filter((a) => a.source === "open").length;
+  const allOpen = openCount === apps.length;
 
   return (
     <section className="relative overflow-hidden">
@@ -34,8 +35,28 @@ export function Hero() {
         >
           {site.name} is a small workshop of useful tools — free to use,
           privacy-first, and made to respect the people who use them. Open
-          source by default. No ads, no lock-in, no surveillance.
+          source, all the way down. No ads, no lock-in, no surveillance.
         </p>
+
+        {featuredApp ? (
+          <p
+            className="reveal text-ink-soft mt-4 max-w-xl text-lg leading-relaxed"
+            style={{ animationDelay: "280ms" }}
+          >
+            Its center of gravity is{" "}
+            <a
+              href={featuredApp.url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-terracotta font-medium underline-offset-4 hover:underline"
+            >
+              {featuredApp.name}
+            </a>{" "}
+            at {displayDomain(featuredApp.url)} —{" "}
+            {`${lowerFirst(featuredApp.tagline)}.`} Everything else here is a
+            side project.
+          </p>
+        ) : null}
 
         <div
           className="reveal mt-10 flex flex-wrap items-center gap-4"
@@ -45,7 +66,9 @@ export function Hero() {
             href="#apps"
             className="group bg-ink text-surface shadow-soft inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-base font-medium transition-transform hover:-translate-y-0.5"
           >
-            Explore the apps
+            {featuredApp
+              ? `Start with ${featuredApp.name}`
+              : "Explore the apps"}
             <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
           </a>
           <a
@@ -62,12 +85,20 @@ export function Hero() {
         >
           <Stat value={String(apps.length)} label="apps in the portfolio" />
           <Stat value={String(liveCount)} label="live right now" />
-          <Stat value={String(openCount)} label="open source" />
+          <Stat
+            value={allOpen ? "100%" : String(openCount)}
+            label="open source"
+          />
           <Stat value="$0" label="forever, no ads" />
         </dl>
       </div>
     </section>
   );
+}
+
+/** Drops a tagline mid-sentence without flattening acronyms like "AI". */
+function lowerFirst(text: string): string {
+  return text.charAt(0).toLowerCase() + text.slice(1);
 }
 
 function Stat({ value, label }: { value: string; label: string }) {
