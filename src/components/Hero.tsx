@@ -1,5 +1,6 @@
 import { apps, displayDomain, featuredApp } from "@/data/apps";
 import { site } from "@/data/site";
+import { ArrowDown } from "./icons";
 
 export function Hero() {
   const liveCount = apps.filter((a) => a.status === "live").length;
@@ -133,23 +134,6 @@ function Underline() {
         strokeWidth="4"
         strokeLinecap="round"
       />
-    </svg>
-  );
-}
-
-function ArrowDown({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M12 5v14M19 12l-7 7-7-7" />
     </svg>
   );
 }

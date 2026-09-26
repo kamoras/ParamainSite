@@ -1,5 +1,7 @@
-import { STATUS_LABEL, type ParamainApp } from "@/data/apps";
+import type { ParamainApp } from "@/data/apps";
 import { ACCENTS } from "./accents";
+import { SourceBadge, StatusBadge } from "./badges";
+import { ArrowUpRight } from "./icons";
 
 export function AppCard({ app }: { app: ParamainApp }) {
   const accent = ACCENTS[app.accent];
@@ -87,49 +89,5 @@ export function AppCard({ app }: { app: ParamainApp }) {
         </div>
       </div>
     </article>
-  );
-}
-
-function StatusBadge({ status }: { status: ParamainApp["status"] }) {
-  const dot =
-    status === "live" ? "bg-sage" : status === "beta" ? "bg-amber" : "bg-muted";
-  return (
-    <span className="border-line bg-canvas text-ink-soft inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium">
-      <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-      {STATUS_LABEL[status]}
-    </span>
-  );
-}
-
-function SourceBadge({ source }: { source: ParamainApp["source"] }) {
-  const isOpen = source === "open";
-  return (
-    <span
-      className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium"
-      style={{
-        background: isOpen ? "var(--color-sage-soft)" : "var(--color-line)",
-        color: isOpen ? "var(--color-sage)" : "var(--color-ink-soft)",
-      }}
-      title={isOpen ? "Open source" : "Source not public"}
-    >
-      {isOpen ? "Open source" : "Closed source"}
-    </span>
-  );
-}
-
-function ArrowUpRight({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M7 17 17 7M7 7h10v10" />
-    </svg>
   );
 }
