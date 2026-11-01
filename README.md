@@ -45,10 +45,10 @@ On the site it gets its own feature panel above the rest of the portfolio (see
 
 Smaller side projects, shown as grid cards below the flagship:
 
-| App                                                        | What it is                                                                            | Source |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------ |
-| [Linkertree](https://linkertree.paramain.com)              | A free, open-source link-in-bio with no lock-in.                                      | Open   |
-| [Spliced](https://spliced.paramain.com)                    | A daily music puzzle — no ads, ever.                                                  | Open   |
+| App                                                   | What it is                                                                               | Source |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------ |
+| [Linkertree](https://linkertree.paramain.com)         | A free, open-source link-in-bio with no lock-in.                                         | Open   |
+| [Spliced](https://spliced.paramain.com)               | A daily music puzzle — no ads, ever.                                                     | Open   |
 | [Streamer Tools](https://streamer-tools.paramain.com) | Interactive Twitch integrations for streamers — a viewer queue, Hues and Cues, and more. | Open   |
 
 > Adding or updating an app is a one-file change: edit
