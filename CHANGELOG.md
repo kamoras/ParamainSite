@@ -8,8 +8,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-- Display font switched from Fraunces to Newsreader; Fraunces' curled, wavy
-  "f" looked uneven in large headings.
+- Display font switched from Fraunces to Source Serif 4; Fraunces' curled,
+  wavy "f" looked uneven in large headings.
 - **DBD Manager** is now **Streamer Tools**, at
   [streamer-tools.paramain.com](https://streamer-tools.paramain.com)
   (source: [`kamoras/streamer-tools`](https://github.com/kamoras/streamer-tools)).
@@ -28,6 +28,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- **Hopline** ([hopline.paramain.com](https://hopline.paramain.com)) joins the
+  portfolio as the runner-up, with its own `SpotlightApp` panel (animated
+  transit map, sample departure board, operator ticker).
+- Presentation tiers (`flagship` / `spotlight` / `standard` / `minor`) on
+  `ParamainApp`, replacing the `featured` flag. Portfolio order is now Civitas,
+  Hopline, Spliced, Streamer Tools, Linkertree; the last two are shown as quiet
+  one-line entries.
 - `featured` and `highlights` fields on `ParamainApp`, plus `featuredApp` /
   `otherApps` / `displayDomain` helpers in `src/data/apps.ts`.
 - `codeRepository` and `isAccessibleForFree` in the JSON-LD for each app.

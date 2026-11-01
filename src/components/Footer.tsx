@@ -36,7 +36,7 @@ export function Footer() {
                   >
                     {app.name}
                   </a>
-                  {app.featured ? (
+                  {app.tier === "flagship" ? (
                     <span className="bg-terracotta-soft text-terracotta rounded-full px-2 py-0.5 text-[0.65rem] font-semibold tracking-[0.1em] uppercase">
                       Flagship
                     </span>

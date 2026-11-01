@@ -2,6 +2,18 @@ export type AppStatus = "live" | "beta" | "soon";
 
 export type AppSource = "open" | "closed";
 
+/**
+ * How loudly the portfolio presents an app, from loudest to quietest:
+ *
+ * - `flagship`  — the large feature panel (exactly one app).
+ * - `spotlight` — a big, playful panel just beneath the flagship (exactly one).
+ * - `standard`  — a full card.
+ * - `minor`     — a quiet one-line entry; there if you go looking.
+ *
+ * The order of `apps` below is the priority order within and across tiers.
+ */
+export type AppTier = "flagship" | "spotlight" | "standard" | "minor";
+
 /** Human labels for the lifecycle badge, shared by every card that shows one. */
 export const STATUS_LABEL: Record<AppStatus, string> = {
   live: "Live",
@@ -34,12 +46,9 @@ export interface ParamainApp {
   monogram: string;
   /** Accent theme key — see ACCENTS in components. */
   accent: "terracotta" | "amber" | "sage" | "plum" | "teal";
-  /**
-   * The flagship. Exactly one app should carry this — it gets the large
-   * feature panel at the top of the portfolio instead of a grid card.
-   */
-  featured?: boolean;
-  /** Feature-panel only: a few short "at a glance" facts. */
+  /** Presentation tier — see {@link AppTier}. */
+  tier: AppTier;
+  /** Flagship panel only: a few short "at a glance" facts. */
   highlights?: { label: string; value: string }[];
 }
 
@@ -58,7 +67,7 @@ export const apps: ParamainApp[] = [
     tags: ["Local AI", "Open weights", "Raspberry Pi", "Transparency"],
     monogram: "Cv",
     accent: "terracotta",
-    featured: true,
+    tier: "flagship",
     highlights: [
       { label: "Runs on", value: "A Raspberry Pi in a spare room" },
       { label: "Models", value: "Open weights, entirely local" },
@@ -67,19 +76,20 @@ export const apps: ParamainApp[] = [
     ],
   },
   {
-    slug: "linkertree",
-    name: "Linkertree",
-    tagline: "A free, open-source link-in-bio",
+    slug: "hopline",
+    name: "Hopline",
+    tagline: "Where's my train?",
     description:
-      "Everything you love about a link-in-bio page, with none of the lock-in. Self-host it or run it free — own your links, your data, and your audience. A genuine open alternative to the usual suspects.",
-    url: "https://linkertree.paramain.com",
-    repo: "https://github.com/kamoras/linkertree",
+      "A fast, free single pane of glass for public transit. Hopline merges live data from a dozen operators into one calm, game-like model of everything moving right now — which trains are running, who's late, why, and where each one is on the map. Trains, subways, buses and even the flights overhead, from Boston down to Norfolk. No accounts, no cookies, no ad tracking.",
+    url: "https://hopline.paramain.com",
+    repo: "https://github.com/kamoras/hopline",
     source: "open",
     status: "live",
-    category: "Creator tools",
-    tags: ["Self-hostable", "No lock-in", "Link-in-bio"],
-    monogram: "Lt",
-    accent: "sage",
+    category: "Transit",
+    tags: ["Live map", "Trains & buses", "Delays explained", "No accounts"],
+    monogram: "Hl",
+    accent: "teal",
+    tier: "spotlight",
   },
   {
     slug: "spliced",
@@ -95,6 +105,7 @@ export const apps: ParamainApp[] = [
     tags: ["Daily puzzle", "Music", "Ad-free"],
     monogram: "Sp",
     accent: "amber",
+    tier: "standard",
   },
   {
     slug: "streamer-tools",
@@ -110,18 +121,37 @@ export const apps: ParamainApp[] = [
     tags: ["Twitch", "Hues and Cues", "Viewer queue", "Chat games"],
     monogram: "St",
     accent: "plum",
+    tier: "minor",
+  },
+  {
+    slug: "linkertree",
+    name: "Linkertree",
+    tagline: "A free, open-source link-in-bio",
+    description:
+      "Everything you love about a link-in-bio page, with none of the lock-in. Self-host it or run it free — own your links, your data, and your audience. A genuine open alternative to the usual suspects.",
+    url: "https://linkertree.paramain.com",
+    repo: "https://github.com/kamoras/linkertree",
+    source: "open",
+    status: "live",
+    category: "Creator tools",
+    tags: ["Self-hostable", "No lock-in", "Link-in-bio"],
+    monogram: "Lt",
+    accent: "sage",
+    tier: "minor",
   },
 ];
 
 /** The flagship, given the feature panel at the top of the portfolio. */
-export const featuredApp = apps.find((app) => app.featured);
+export const featuredApp = apps.find((app) => app.tier === "flagship");
 
-/**
- * Everything else — the smaller side projects, shown as grid cards. Compared
- * against the resolved flagship rather than the `featured` flag, so a stray
- * second `featured: true` still renders as a card instead of vanishing.
- */
-export const otherApps = apps.filter((app) => app !== featuredApp);
+/** The runner-up, given its own playful panel right under the flagship. */
+export const spotlightApp = apps.find((app) => app.tier === "spotlight");
+
+/** Full-size cards, in priority order. */
+export const standardApps = apps.filter((app) => app.tier === "standard");
+
+/** Quiet one-line entries, in priority order. */
+export const minorApps = apps.filter((app) => app.tier === "minor");
 
 /** `civitas-research.org` from `https://civitas-research.org` — for display. */
 export function displayDomain(url: string): string {

@@ -1,8 +1,20 @@
-import { featuredApp, otherApps } from "@/data/apps";
+import {
+  displayDomain,
+  featuredApp,
+  minorApps,
+  spotlightApp,
+  standardApps,
+} from "@/data/apps";
 import { AppCard } from "./AppCard";
 import { FeaturedApp } from "./FeaturedApp";
 import { Reveal } from "./Reveal";
+import { SpotlightApp } from "./SpotlightApp";
 
+/**
+ * The portfolio, loudest to quietest: the flagship panel, the spotlight panel,
+ * full cards, then a quiet list for the smallest tools. The order and the tier
+ * of each app are set in `src/data/apps.ts`.
+ */
 export function AppsSection() {
   return (
     <section id="apps" className="scroll-mt-24">
@@ -27,38 +39,69 @@ export function AppsSection() {
           </>
         ) : null}
 
-        <div className={`max-w-2xl ${featuredApp ? "mt-24 sm:mt-32" : ""}`}>
-          <SectionLabel>
-            {featuredApp ? "Also on the shelf" : "The portfolio"}
-          </SectionLabel>
-          <h2 className="font-display mt-4 text-[clamp(1.75rem,3.5vw,2.5rem)] leading-[1.1] font-light tracking-[-0.02em]">
-            {featuredApp
-              ? "Smaller things, built along the way."
-              : "Small tools, built with care."}
-          </h2>
-          <p className="text-ink-soft mt-5 text-lg leading-relaxed">
-            {featuredApp ? (
-              <>
-                Side projects and weekend tools. Each one scratches a specific
-                itch, and each one is free and open source — but they&apos;re
-                the extras, not the main course.
-              </>
-            ) : (
-              <>
-                Each one solves a real problem and gives it away free. Every one
-                is open source; all of them put you first.
-              </>
-            )}
-          </p>
-        </div>
+        {spotlightApp ? (
+          <>
+            <div className={`max-w-2xl ${featuredApp ? "mt-24 sm:mt-32" : ""}`}>
+              <SectionLabel>Right behind it</SectionLabel>
+              <h2 className="font-display mt-4 text-[clamp(1.75rem,3.5vw,2.5rem)] leading-[1.1] font-light tracking-[-0.02em]">
+                Every train, bus, and plane on one map.
+              </h2>
+            </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {otherApps.map((app, i) => (
-            <Reveal as="div" key={app.slug} delay={i * 90}>
-              <AppCard app={app} />
+            <Reveal className="mt-10">
+              <SpotlightApp app={spotlightApp} />
             </Reveal>
-          ))}
-        </div>
+          </>
+        ) : null}
+
+        {standardApps.length ? (
+          <>
+            <div className="mt-24 max-w-2xl sm:mt-32">
+              <SectionLabel>Also on the shelf</SectionLabel>
+              <h2 className="font-display mt-4 text-[clamp(1.5rem,3vw,2.1rem)] leading-[1.1] font-light tracking-[-0.02em]">
+                A small daily ritual.
+              </h2>
+            </div>
+
+            <div className="mt-10 grid gap-6">
+              {standardApps.map((app, i) => (
+                <Reveal as="div" key={app.slug} delay={i * 90}>
+                  <AppCard app={app} />
+                </Reveal>
+              ))}
+            </div>
+          </>
+        ) : null}
+
+        {minorApps.length ? (
+          <div className="mt-20 sm:mt-28">
+            <h2 className="text-ink-soft text-xs font-semibold tracking-[0.16em] uppercase">
+              Smaller tools
+            </h2>
+            <ul className="divide-line border-line mt-4 divide-y border-y">
+              {minorApps.map((app) => (
+                <li key={app.slug} id={app.slug} className="scroll-mt-24">
+                  <a
+                    href={app.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group hover:bg-surface/60 -mx-3 flex flex-wrap items-baseline gap-x-4 gap-y-1 rounded-xl px-3 py-4 transition-colors"
+                  >
+                    <span className="font-display text-ink text-lg font-medium">
+                      {app.name}
+                    </span>
+                    <span className="text-ink-soft min-w-0 flex-1 text-sm">
+                      {app.tagline}
+                    </span>
+                    <span className="text-ink-soft group-hover:text-ink font-mono text-xs transition-colors">
+                      {displayDomain(app.url)}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </div>
     </section>
   );

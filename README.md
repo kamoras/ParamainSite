@@ -47,20 +47,22 @@ Smaller side projects, shown as grid cards below the flagship:
 
 | App                                                   | What it is                                                                               | Source |
 | ----------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------ |
+| [Hopline](https://hopline.paramain.com)               | Where's my train? Live trains, buses and flights on one map.                             | Open   |
 | [Linkertree](https://linkertree.paramain.com)         | A free, open-source link-in-bio with no lock-in.                                         | Open   |
 | [Spliced](https://spliced.paramain.com)               | A daily music puzzle — no ads, ever.                                                     | Open   |
 | [Streamer Tools](https://streamer-tools.paramain.com) | Interactive Twitch integrations for streamers — a viewer queue, Hues and Cues, and more. | Open   |
 
 > Adding or updating an app is a one-file change: edit
-> [`src/data/apps.ts`](src/data/apps.ts). Set `featured: true` on exactly one
-> app to give it the flagship panel.
+> [`src/data/apps.ts`](src/data/apps.ts). Each app has a `tier`
+> (`flagship`, `spotlight`, `standard` or `minor`) that decides how loudly it is
+> shown, and the order of the list is the priority order.
 
 ## Tech stack
 
 - **[Next.js 16](https://nextjs.org)** (App Router, React 19, TypeScript)
 - **[Tailwind CSS v4](https://tailwindcss.com)** with a custom warm design system
 - **[next/font](https://nextjs.org/docs/app/api-reference/components/font)** —
-  Newsreader (display) + Hanken Grotesk (body)
+  Source Serif 4 (display) + Hanken Grotesk (body)
 - Zero client-side data dependencies; deploys statically to
   **[Vercel](https://vercel.com)**
 

@@ -1,14 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, Hanken_Grotesk } from "next/font/google";
+import { Source_Serif_4, Hanken_Grotesk } from "next/font/google";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const display = Newsreader({
+const display = Source_Serif_4({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  // Newsreader instead of Fraunces: Fraunces' f has a wavy, curled hook at
-  // large sizes that no axis setting fully removes.
+  // Source Serif 4: its f and t stay evenly spaced with plain strokes at
+  // display sizes. Fraunces (wavy f) and Newsreader (hairline f/t that
+  // collide when tightly tracked) were both tried and rejected.
   axes: ["opsz"],
 });
 

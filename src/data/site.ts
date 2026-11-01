@@ -9,7 +9,7 @@ export const site = {
   /** Used by the suggest-an-app form to open a prefilled issue. */
   ideasRepo: "https://github.com/kamoras/ParamainSite",
   github: "https://github.com/kamoras",
-  email: "mack.ryanm@gmail.com",
+  email: "ryan@ryan-mack.dev",
   author: "Ryan Mack",
   authorUrl: "https://ryan-mack.dev",
 } as const;

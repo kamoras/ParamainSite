@@ -60,3 +60,12 @@ export function ArrowDown({ className }: IconProps) {
     </svg>
   );
 }
+
+export function Train({ className }: IconProps) {
+  return (
+    <svg {...STROKE_PROPS} className={className}>
+      <rect x="5" y="3" width="14" height="14" rx="3" />
+      <path d="M5 11h14M9 21l2-4M15 21l-2-4M9 14h.01M15 14h.01" />
+    </svg>
+  );
+}

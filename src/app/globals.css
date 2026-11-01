@@ -3,11 +3,12 @@
 /* ------------------------------------------------------------------ *
  * Paramain design system — warm, open, modern.
  * A parchment canvas, ink text, terracotta/amber warmth with a sage
- * and plum counterpoint. Display serif (Newsreader) + grotesk body.
+ * and plum counterpoint. Display serif (Source Serif 4) + grotesk body.
  * ------------------------------------------------------------------ */
 
 @theme {
-  --font-display: var(--font-display), "Newsreader", ui-serif, Georgia, serif;
+  --font-display:
+    var(--font-display), "Source Serif 4", ui-serif, Georgia, serif;
   --font-sans:
     var(--font-sans), "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
 
@@ -193,5 +194,31 @@
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
+  }
+}
+
+/* Headings are set with tracking-[-0.02em] etc.; that is too tight for this
+   serif and makes letter pairs like "ft" touch, so normalise it here. */
+.font-display {
+  letter-spacing: -0.005em;
+}
+
+/* Hopline panel: the operator strip scrolls like a station destination board. */
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  animation: ticker 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
   }
 }
