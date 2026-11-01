@@ -6,6 +6,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Removed
+
+- The "How I work" (ethos) section and its nav link.
+
 ### Changed
 
 - **Restyled the whole site** to feel less like a template and more like one

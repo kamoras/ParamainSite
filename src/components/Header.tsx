@@ -28,12 +28,6 @@ export function Header() {
             Apps
           </a>
           <a
-            href="#ethos"
-            className="hover:text-ink underline-offset-4 hover:underline"
-          >
-            How I work
-          </a>
-          <a
             href="#suggest"
             className="hover:text-ink hidden underline-offset-4 hover:underline sm:inline"
           >

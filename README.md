@@ -16,7 +16,7 @@ the way down, with no ads, no lock-in, and no surveillance.
 [![License: MIT](https://img.shields.io/badge/License-MIT-c2552d.svg)](LICENSE)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-5f7a48.svg)](CONTRIBUTING.md)
 
-[**Live site →**](https://paramain.com) · [Suggest an app](https://paramain.com/#suggest) · [The ethos](https://paramain.com/#ethos)
+[**Live site →**](https://paramain.com) · [Suggest an app](https://paramain.com/#suggest)
 
 </div>
 
@@ -101,7 +101,7 @@ src/
 │  ├─ globals.css      # The warm design system (Tailwind v4 @theme)
 │  ├─ layout.tsx       # Fonts, metadata, skip link
 │  └─ page.tsx         # Composes the sections + JSON-LD
-├─ components/         # Header, Hero, AppsSection, Ethos, Suggest, Footer …
+├─ components/         # Header, Hero, AppsSection, Suggest, Footer …
 └─ data/
    ├─ apps.ts          # ← The single source of truth for the portfolio
    └─ site.ts          # Site-wide config (name, links, contact)

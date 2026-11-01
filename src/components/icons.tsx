@@ -3,8 +3,7 @@
  *
  * These are the generic, reusable ones — an icon used by more than one
  * component belongs here rather than being copied into each. Icons that are
- * bespoke to a single component (the hero's hand-drawn underline, the ethos
- * glyphs keyed by principle) stay with the component that owns them.
+ * bespoke to a single component stay with the component that owns them.
  */
 
 interface IconProps {
