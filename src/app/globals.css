@@ -3,11 +3,11 @@
 /* ------------------------------------------------------------------ *
  * Paramain design system — warm, open, modern.
  * A parchment canvas, ink text, terracotta/amber warmth with a sage
- * and plum counterpoint. Display serif (Fraunces) + grotesk body.
+ * and plum counterpoint. Display serif (Newsreader) + grotesk body.
  * ------------------------------------------------------------------ */
 
 @theme {
-  --font-display: var(--font-display), "Fraunces", ui-serif, Georgia, serif;
+  --font-display: var(--font-display), "Newsreader", ui-serif, Georgia, serif;
   --font-sans:
     var(--font-sans), "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
 
@@ -194,12 +194,4 @@
     transform: none !important;
     animation: none !important;
   }
-}
-
-/* Keep Fraunces' wonky forms off so large headings stay straight and even. */
-.font-display {
-  font-optical-sizing: none;
-  font-variation-settings:
-    "WONK" 0,
-    "opsz" 36;
 }

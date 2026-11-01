@@ -8,6 +8,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Display font switched from Fraunces to Newsreader; Fraunces' curled, wavy
+  "f" looked uneven in large headings.
 - **DBD Manager** is now **Streamer Tools**, at
   [streamer-tools.paramain.com](https://streamer-tools.paramain.com)
   (source: [`kamoras/streamer-tools`](https://github.com/kamoras/streamer-tools)).

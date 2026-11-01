@@ -1,16 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Hanken_Grotesk } from "next/font/google";
+import { Newsreader, Hanken_Grotesk } from "next/font/google";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Newsreader({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  // Load the WONK axis so we can pin it to 0 in CSS. Left unloaded, Fraunces
-  // auto-applies its "wonky" forms at large optical sizes (the leaning h/n/m
-  // and the curled f), which read as wavy in big headings.
-  axes: ["opsz", "WONK"],
+  // Newsreader instead of Fraunces: Fraunces' f has a wavy, curled hook at
+  // large sizes that no axis setting fully removes.
+  axes: ["opsz"],
 });
 
 const sans = Hanken_Grotesk({

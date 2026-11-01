@@ -60,7 +60,7 @@ Smaller side projects, shown as grid cards below the flagship:
 - **[Next.js 16](https://nextjs.org)** (App Router, React 19, TypeScript)
 - **[Tailwind CSS v4](https://tailwindcss.com)** with a custom warm design system
 - **[next/font](https://nextjs.org/docs/app/api-reference/components/font)** —
-  Fraunces (display) + Hanken Grotesk (body)
+  Newsreader (display) + Hanken Grotesk (body)
 - Zero client-side data dependencies; deploys statically to
   **[Vercel](https://vercel.com)**
 
