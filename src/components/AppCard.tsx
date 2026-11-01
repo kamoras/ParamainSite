@@ -9,7 +9,7 @@ export function AppCard({ app }: { app: ParamainApp }) {
   return (
     <article
       id={app.slug}
-      className="group rounded-card border-line bg-surface shadow-soft hover:shadow-lift relative flex scroll-mt-24 flex-col overflow-hidden border p-7 transition-all duration-300 hover:-translate-y-1"
+      className="group rounded-card border-line bg-surface shadow-soft hover:shadow-lift relative flex scroll-mt-24 flex-col overflow-hidden border p-7"
       style={
         {
           "--accent": accent.color,
@@ -17,20 +17,7 @@ export function AppCard({ app }: { app: ParamainApp }) {
         } as React.CSSProperties
       }
     >
-      {/* Accent wash that warms on hover. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-16 -right-16 h-44 w-44 rounded-full opacity-50 blur-2xl transition-opacity duration-500 group-hover:opacity-90"
-        style={{ background: "var(--accent-soft)" }}
-      />
-
       <div className="relative flex items-start justify-between gap-4">
-        <div
-          className="font-display text-surface flex h-14 w-14 items-center justify-center rounded-2xl text-2xl font-semibold"
-          style={{ background: "var(--accent)" }}
-        >
-          {app.monogram}
-        </div>
         <div className="flex flex-wrap items-center justify-end gap-2">
           <StatusBadge status={app.status} />
           <SourceBadge source={app.source} />
@@ -38,10 +25,7 @@ export function AppCard({ app }: { app: ParamainApp }) {
       </div>
 
       <div className="relative mt-6 flex flex-1 flex-col">
-        <p
-          className="text-xs font-semibold tracking-[0.14em] uppercase"
-          style={{ color: "var(--accent)" }}
-        >
+        <p className="label" style={{ color: "var(--accent)" }}>
           {app.category}
         </p>
         <h3 className="font-display mt-2 text-2xl font-medium tracking-tight">
@@ -58,7 +42,7 @@ export function AppCard({ app }: { app: ParamainApp }) {
           {app.tags.map((tag) => (
             <li
               key={tag}
-              className="border-line bg-canvas text-ink-soft rounded-full border px-3 py-1 text-xs font-medium"
+              className="border-line bg-canvas text-ink-soft rounded-sm border px-3 py-1 text-xs font-medium"
             >
               {tag}
             </li>

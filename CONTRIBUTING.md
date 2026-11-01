@@ -72,4 +72,4 @@ The portfolio is data-driven. To add a new app or update an existing one, edit
 ## Questions?
 
 Open a [discussion](../../discussions) or email
-[mack.ryanm@gmail.com](mailto:mack.ryanm@gmail.com). We're friendly.
+[ryan@ryan-mack.dev](mailto:ryan@ryan-mack.dev). We're friendly.
