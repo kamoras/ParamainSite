@@ -8,7 +8,7 @@ it responsibly.
 
 **Please do _not_ open a public issue for security problems.**
 
-Instead, email **[mack.ryanm@gmail.com](mailto:mack.ryanm@gmail.com)** with:
+Instead, email **[ryan@ryan-mack.dev](mailto:ryan@ryan-mack.dev)** with:
 
 - A description of the issue and its potential impact
 - Steps to reproduce

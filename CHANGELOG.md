@@ -6,8 +6,37 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Removed
+
+- The "How I work" (ethos) section and its nav link.
+
 ### Changed
 
+- **Civitas** is now shown as **Civitas Research** and its "Cv" monogram is
+  gone (the `monogram` field is removed). Every project's card now takes its
+  look from the real project: Civitas Research's register-paper palette and
+  wordmark, Hopline's navy mark, Inter and delay pills, Spliced's analog
+  mixing console, and each smaller tool's own mark and type.
+- Shared promises (free, open source, no ads, no lock-in, no surveillance) are
+  now stated once in the hero instead of repeated on every project. Cards,
+  tags, and highlights now only mention what is unique to each project, and
+  the "Open source" badge is shown only for a project that is _not_ open.
+- Civitas is now described as a single pane of glass for the U.S. government
+  (matching Hopline for public transit) instead of "powered by local AI":
+  new tagline, description, tags, highlights, card visual, and site metadata.
+- **Restyled the whole site** to feel less like a template and more like one
+  person's notes: flat paper and ink with colour saved for the projects,
+  hairline rules and square corners instead of glows and soft cards, a serif for
+  text with IBM Plex Mono for small labels, a marker highlight, a project
+  index in the hero, and first-person copy throughout.
+- New logo: a geometric "P" with a small amber dot beside it ("para" means
+  beside). Updated in the header, footer, and favicons.
+- Display font switched from Fraunces to Source Serif 4; Fraunces' curled,
+  wavy "f" looked uneven in large headings.
+- **DBD Manager** is now **Streamer Tools**, at
+  [streamer-tools.paramain.com](https://streamer-tools.paramain.com)
+  (source: [`kamoras/stream-tools`](https://github.com/kamoras/stream-tools)).
+  It now bundles multiple Twitch integrations; the latest is Hues and Cues.
 - **Civitas** now lives at
   [civitas-research.org](https://civitas-research.org) (previously
   `civitas.paramain.com`).
@@ -22,6 +51,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- **Hopline** ([hopline.paramain.com](https://hopline.paramain.com)) joins the
+  portfolio as the runner-up, with its own `SpotlightApp` panel (animated
+  transit map, sample departure board, operator ticker).
+- Presentation tiers (`flagship` / `spotlight` / `standard` / `minor`) on
+  `ParamainApp`, replacing the `featured` flag. Portfolio order is now Civitas,
+  Hopline, Spliced, Streamer Tools, Linkertree; the last two are shown as quiet
+  one-line entries.
 - `featured` and `highlights` fields on `ParamainApp`, plus `featuredApp` /
   `otherApps` / `displayDomain` helpers in `src/data/apps.ts`.
 - `codeRepository` and `isAccessibleForFree` in the JSON-LD for each app.

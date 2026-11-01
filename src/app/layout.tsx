@@ -1,20 +1,43 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Hanken_Grotesk } from "next/font/google";
+import {
+  Archivo,
+  IBM_Plex_Mono,
+  Inter,
+  Source_Serif_4,
+} from "next/font/google";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Source_Serif_4({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-serif-loaded",
   display: "swap",
-  // opsz only — keep optical sizing for crisp headings, but no WONK/SOFT
-  // axes so the serifs stay clean and even (not wiggly).
+  // Source Serif 4: its f and t stay evenly spaced with plain strokes at
+  // display sizes. Fraunces (wavy f) and Newsreader (hairline f/t that
+  // collide when tightly tracked) were both tried and rejected.
   axes: ["opsz"],
 });
 
-const sans = Hanken_Grotesk({
+// Archivo 800 is the Civitas Research wordmark's face, used for that and
+// nothing else (it mirrors civitas-research.org).
+const wordmark = Archivo({
   subsets: ["latin"],
-  variable: "--font-sans",
+  weight: "800",
+  variable: "--font-wordmark-loaded",
+  display: "swap",
+});
+
+// Inter is Hopline's typeface; it is used only inside Hopline's own card.
+const hoplineSans = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter-loaded",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono-loaded",
   display: "swap",
 });
 
@@ -35,7 +58,8 @@ export const metadata: Metadata = {
     "civitas-research.org",
     "Civitas Research",
     "political transparency",
-    "local AI",
+    "U.S. government",
+    "civic tech",
     "Linkertree",
     "Spliced",
   ],
@@ -61,7 +85,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f7f1e6",
+  themeColor: "#f4f1ea",
   colorScheme: "light",
 };
 
@@ -69,7 +93,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable}`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${mono.variable} ${wordmark.variable} ${hoplineSans.variable}`}
+    >
       <body>
         <a href="#main" className="skip-link">
           Skip to content

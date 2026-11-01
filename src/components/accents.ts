@@ -5,12 +5,9 @@ export const ACCENTS: Record<
   ParamainApp["accent"],
   { color: string; soft: string }
 > = {
-  terracotta: {
-    color: "var(--color-terracotta)",
-    soft: "var(--color-terracotta-soft)",
-  },
-  amber: { color: "var(--color-amber)", soft: "var(--color-amber-soft)" },
-  sage: { color: "var(--color-sage)", soft: "var(--color-sage-soft)" },
-  plum: { color: "var(--color-plum)", soft: "var(--color-plum-soft)" },
-  teal: { color: "var(--color-teal)", soft: "var(--color-teal-soft)" },
+  ledger: { color: "var(--color-ledger)", soft: "var(--color-ledger-soft)" },
+  azure: { color: "var(--color-hop-accent)", soft: "#dbe7fb" },
+  cobalt: { color: "var(--color-console-blue)", soft: "#d6e0ef" },
+  violet: { color: "var(--color-stream-accent)", soft: "#e4e0ff" },
+  emerald: { color: "var(--color-link-green-deep)", soft: "#d4f5da" },
 };

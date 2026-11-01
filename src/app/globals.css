@@ -3,24 +3,107 @@
 /* ------------------------------------------------------------------ *
  * Paramain design system — warm, open, modern.
  * A parchment canvas, ink text, terracotta/amber warmth with a sage
- * and plum counterpoint. Display serif (Fraunces) + grotesk body.
+ * and plum counterpoint. Display serif (Source Serif 4) + grotesk body.
  * ------------------------------------------------------------------ */
 
 @theme {
-  --font-display: var(--font-display), "Fraunces", ui-serif, Georgia, serif;
-  --font-sans:
-    var(--font-sans), "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  /* One serif for everything you read, mono for the small print. */
+  --font-display: var(--font-serif-loaded), "Source Serif 4", Georgia, serif;
+  --font-sans: var(--font-serif-loaded), "Source Serif 4", Georgia, serif;
+  --font-mono:
+    var(--font-mono-loaded), "IBM Plex Mono", ui-monospace, SFMono-Regular,
+    monospace;
 
-  /* Surfaces & ink */
-  --color-canvas: #f6efe2;
-  --color-surface: #fcf8f0;
-  --color-ink: #2a2320;
-  --color-ink-soft: #574a40;
-  --color-muted: #82736650;
-  --color-line: #2a232014;
-  --color-line-strong: #2a232024;
+  /* Paper and ink. Colour is saved for the projects themselves. */
+  --color-canvas: #f4f1ea;
+  --color-surface: #fbfaf6;
+  --color-ink: #1d1b18;
+  --color-ink-soft: #4f4a42;
+  --color-muted: #8a8378;
+  --color-line: #1d1b1826;
+  --color-line-strong: #1d1b18;
+  --color-mark: #f2cf4a;
 
-  /* Warm accents */
+  --font-wordmark:
+    var(--font-wordmark-loaded), "Archivo", ui-sans-serif, system-ui, sans-serif;
+
+  /* Civitas Research's own palette, taken from civitas-research.org
+     ("register paper"): parchment, paper, sunk wash, ink, ledger green, the
+     search-match highlight, and the party marks from its maps. */
+  --color-parchment: #f5efe2;
+  --color-paper: #fbf8f1;
+  --color-register: #ece4d3;
+  --color-civ-ink: #1e1a15;
+  --color-civ-ink-lo: #433b31;
+  --color-ledger: #1b5e34;
+  --color-ledger-soft: #dbe7da;
+  --color-civ-mark: #ecdc8f;
+  --color-dem: #2552a3;
+  --color-rep: #a12a24;
+  --color-ind: #6b4699;
+  --color-chart-muted: #8a7f6c;
+  --color-chart-faint: #c9bfa9;
+  --color-chart-gold: #8c6a2e;
+
+  --font-inter:
+    var(--font-inter-loaded), "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Hopline (hopline.paramain.com): navy brand, blue accent, calm greys, and
+     green / amber / red status colours for on time / late / very late. */
+  --color-hop-bg: #f6f7f9;
+  --color-hop-surface: #ffffff;
+  --color-hop-line: #e2e5eb;
+  --color-hop-text: #11151c;
+  --color-hop-muted: #5d6676;
+  --color-hop-navy: #12315e;
+  --color-hop-accent: #2b6bea;
+  --color-hop-light: #9cc0ff;
+  --color-hop-ok: #0d7a3f;
+  --color-hop-ok-bg: #e3f5eb;
+  --color-hop-warn: #a35a00;
+  --color-hop-warn-bg: #fff1d6;
+  --color-hop-bad: #c0261f;
+  --color-hop-bad-bg: #fde6e4;
+
+  /* Spliced ("Studio Day", an 80s analog mixing console): putty paint,
+     masking tape, cream caps, teal LEDs and a red index line. */
+  --color-putty: #bfb6a2;
+  --color-console: #d8d0bf;
+  --color-console-hi: #ebe5d7;
+  --color-console-lo: #cbc2ae;
+  --color-groove: #a89f8a;
+  --color-silk: #2a251d;
+  --color-tape: #f3ead0;
+  --color-marker: #1e2a5a;
+  --color-cap: #ece6d8;
+  --color-cap-edge: #9a917c;
+  --color-window: #1b1f21;
+  --color-trace: #d9e6dc;
+  --color-lcd: #a9b89a;
+  --color-lcd-ink: #1d2a22;
+  --color-vu-face: #f4e9c8;
+  --color-led: #57f2d6;
+  --color-clip-red: #e0261b;
+  --color-console-blue: #2c5aa0;
+
+  --font-silk:
+    "Eurostile", "Microgramma D Extended", "Bank Gothic", "DIN Alternate",
+    "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
+  --font-marker:
+    "Marker Felt", "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Neue",
+    ui-rounded, system-ui, sans-serif;
+
+  /* Stream tools (dark UI, violet accent, rainbow). */
+  --color-stream-bg: #0e1016;
+  --color-stream-surface: #171a23;
+  --color-stream-border: #2c3142;
+  --color-stream-accent: #8b7bff;
+
+  /* Linkertree's green mark. */
+  --color-link-green: #43e660;
+  --color-link-green-deep: #1b5e2b;
+
+  /* Project colours. */
   --color-terracotta: #c2552d;
   --color-terracotta-soft: #f3d9cb;
   --color-amber: #cf8a1f;
@@ -32,10 +115,10 @@
   --color-teal: #2f7d72;
   --color-teal-soft: #cfe5e0;
 
-  --radius-card: 1.5rem;
+  --radius-card: 0.375rem;
 
-  --shadow-soft: 0 1px 2px #2a232010, 0 12px 32px -16px #2a232033;
-  --shadow-lift: 0 2px 4px #2a232012, 0 28px 60px -28px #2a232040;
+  --shadow-soft: none;
+  --shadow-lift: none;
 }
 
 @layer base {
@@ -62,6 +145,7 @@
   }
 
   body {
+    font-size: 1.0625rem;
     background-color: var(--color-canvas);
     color: var(--color-ink);
     font-family: var(--font-sans);
@@ -71,44 +155,45 @@
     position: relative;
   }
 
-  /* Atmospheric warmth: a soft sunrise glow bleeding from the top. */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
-    background:
-      radial-gradient(60rem 40rem at 78% -8%, #e9b06a40, transparent 60%),
-      radial-gradient(52rem 38rem at 8% 4%, #c2552d22, transparent 55%),
-      radial-gradient(48rem 44rem at 50% 120%, #5f7a4820, transparent 60%);
-  }
-
-  /* Fine grain overlay for paper texture. */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.035;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
   ::selection {
-    background-color: var(--color-terracotta);
-    color: var(--color-surface);
+    background-color: var(--color-mark);
+    color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-terracotta);
+    outline: 2px solid var(--color-ink);
     outline-offset: 3px;
-    border-radius: 4px;
   }
 }
 
 @layer components {
+  /* The small mono labels used for categories, status and metadata. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* A hand-run highlighter stroke behind a word. */
+  .marker {
+    background-image: linear-gradient(
+      100deg,
+      transparent 0.5%,
+      var(--color-mark) 2%,
+      var(--color-mark) 97%,
+      transparent 99.5%
+    );
+    background-repeat: no-repeat;
+    background-size: 100% 0.46em;
+    background-position: 0 72%;
+    padding: 0 0.08em;
+    margin: 0 -0.08em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
   .skip-link {
     position: absolute;
     left: 50%;
@@ -118,7 +203,7 @@
     background: var(--color-ink);
     color: var(--color-surface);
     padding: 0.6rem 1.1rem;
-    border-radius: 999px;
+    border-radius: 2px;
     font-size: 0.85rem;
     transition: top 0.2s ease;
   }
@@ -142,7 +227,7 @@
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -176,15 +261,10 @@
 /* Reveal on scroll — toggled by IntersectionObserver via [data-revealed]. */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(22px);
-  transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+  transition: opacity 0.6s ease;
 }
 .reveal-on-scroll[data-revealed="true"] {
   opacity: 1;
-  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -193,5 +273,122 @@
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
+  }
+}
+
+/* Headings are set with tracking-[-0.02em] etc.; that is too tight for this
+   serif and makes letter pairs like "ft" touch, so normalise it here. */
+.font-display {
+  letter-spacing: -0.005em;
+}
+
+/* Hopline panel: the operator strip scrolls like a station destination board. */
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  animation: ticker 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+
+/* Decorative motion for the app visuals (Civitas scan, Spliced waveform). */
+@keyframes scan {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(1400%);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes bounce-bar {
+  0%,
+  100% {
+    transform: scaleY(0.45);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes playhead {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.anim-scan {
+  animation: scan 5s ease-in-out infinite;
+}
+.anim-blink {
+  animation: blink 1.6s ease-in-out infinite;
+}
+.anim-bar {
+  transform-origin: center;
+  animation: bounce-bar 1.4s ease-in-out infinite;
+}
+.anim-playhead {
+  animation: playhead 7s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-scan,
+  .anim-blink,
+  .anim-bar,
+  .anim-playhead {
+    animation: none;
+  }
+}
+
+/* Spliced's console: the VU needle swings, and the type is silkscreened. */
+@keyframes needle {
+  0%,
+  100% {
+    transform: rotate(-38deg);
+  }
+  35% {
+    transform: rotate(22deg);
+  }
+  60% {
+    transform: rotate(-12deg);
+  }
+  80% {
+    transform: rotate(34deg);
+  }
+}
+
+.anim-needle {
+  transform-origin: 50px 56px;
+  animation: needle 4.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-needle {
+    animation: none;
+    transform: rotate(10deg);
   }
 }

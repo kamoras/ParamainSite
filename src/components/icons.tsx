@@ -3,8 +3,7 @@
  *
  * These are the generic, reusable ones — an icon used by more than one
  * component belongs here rather than being copied into each. Icons that are
- * bespoke to a single component (the hero's hand-drawn underline, the ethos
- * glyphs keyed by principle) stay with the component that owns them.
+ * bespoke to a single component stay with the component that owns them.
  */
 
 interface IconProps {
@@ -57,6 +56,15 @@ export function ArrowDown({ className }: IconProps) {
   return (
     <svg {...STROKE_PROPS} className={className}>
       <path d="M12 5v14M19 12l-7 7-7-7" />
+    </svg>
+  );
+}
+
+export function Train({ className }: IconProps) {
+  return (
+    <svg {...STROKE_PROPS} className={className}>
+      <rect x="5" y="3" width="14" height="14" rx="3" />
+      <path d="M5 11h14M9 21l2-4M15 21l-2-4M9 14h.01M15 14h.01" />
     </svg>
   );
 }

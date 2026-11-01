@@ -7,7 +7,7 @@
 **Software should be accessible to everyone.**
 
 The showcase site for [Paramain](https://paramain.com) — a portfolio of free,
-independent apps led by [Civitas](https://civitas-research.org). Open source all
+independent apps led by [Civitas Research](https://civitas-research.org). Open source all
 the way down, with no ads, no lock-in, and no surveillance.
 
 [![Built with Next.js](https://img.shields.io/badge/Next.js-16-000?logo=next.js)](https://nextjs.org)
@@ -16,7 +16,7 @@ the way down, with no ads, no lock-in, and no surveillance.
 [![License: MIT](https://img.shields.io/badge/License-MIT-c2552d.svg)](LICENSE)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-5f7a48.svg)](CONTRIBUTING.md)
 
-[**Live site →**](https://paramain.com) · [Suggest an app](https://paramain.com/#suggest) · [The ethos](https://paramain.com/#ethos)
+[**Live site →**](https://paramain.com) · [Suggest an app](https://paramain.com/#suggest)
 
 </div>
 
@@ -32,35 +32,39 @@ template for your own portfolio.
 
 ### The flagship
 
-**[Civitas](https://civitas-research.org)** — `civitas-research.org` — is the
-project the site is built around. It's a political transparency platform that
-runs open-weight models locally on a Raspberry Pi, distilling public records and
-legislative activity into plain language. Originally closed source, it is now
-**fully open source**: [`kamoras/civitas`](https://github.com/kamoras/civitas).
+**[Civitas Research](https://civitas-research.org)** — `civitas-research.org` — is the
+project the site is built around. It's a single pane of glass for the U.S.
+federal government: members of Congress, the president, agencies and the
+Supreme Court, with every figure shown alongside its source. Originally closed
+source, it is now **fully open source**: [`kamoras/civitas`](https://github.com/kamoras/civitas).
 
 On the site it gets its own feature panel above the rest of the portfolio (see
 [`FeaturedApp.tsx`](src/components/FeaturedApp.tsx)).
 
 ### The rest of the shelf
 
-Smaller side projects, shown as grid cards below the flagship:
+The rest of the portfolio, shown in descending order of priority below the flagship:
 
-| App                                                        | What it is                                                                            | Source |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------ |
-| [Linkertree](https://linkertree.paramain.com)              | A free, open-source link-in-bio with no lock-in.                                      | Open   |
-| [Spliced](https://spliced.paramain.com)                    | A daily music puzzle — no ads, ever.                                                  | Open   |
-| [DBD Manager](https://deadbydaylight-manager.paramain.com) | Stream utilities (like a viewer queue) for Twitch streamers playing Dead by Daylight. | Open   |
+| App                                                   | What it is                                                                               | Source |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------ |
+| [Hopline](https://hopline.paramain.com)               | Where's my train? Live trains, buses and flights on one map.                             | Open   |
+| [Linkertree](https://linkertree.paramain.com)         | A free, open-source link-in-bio with no lock-in.                                         | Open   |
+| [Spliced](https://spliced.paramain.com)               | A daily music puzzle — no ads, ever.                                                     | Open   |
+| [Streamer Tools](https://streamer-tools.paramain.com) | Interactive Twitch integrations for streamers — a viewer queue, Hues and Cues, and more. | Open   |
 
 > Adding or updating an app is a one-file change: edit
-> [`src/data/apps.ts`](src/data/apps.ts). Set `featured: true` on exactly one
-> app to give it the flagship panel.
+> [`src/data/apps.ts`](src/data/apps.ts). Each app has a `tier`
+> (`flagship`, `spotlight`, `standard` or `minor`) that decides how loudly it is
+> shown, and the order of the list is the priority order. Each project's card
+> is styled after the real project (palette, typeface, logo) — see the
+> components named in `AppsSection.tsx`.
 
 ## Tech stack
 
 - **[Next.js 16](https://nextjs.org)** (App Router, React 19, TypeScript)
 - **[Tailwind CSS v4](https://tailwindcss.com)** with a custom warm design system
 - **[next/font](https://nextjs.org/docs/app/api-reference/components/font)** —
-  Fraunces (display) + Hanken Grotesk (body)
+  Source Serif 4 (text and display) + IBM Plex Mono (small labels)
 - Zero client-side data dependencies; deploys statically to
   **[Vercel](https://vercel.com)**
 
@@ -99,7 +103,7 @@ src/
 │  ├─ globals.css      # The warm design system (Tailwind v4 @theme)
 │  ├─ layout.tsx       # Fonts, metadata, skip link
 │  └─ page.tsx         # Composes the sections + JSON-LD
-├─ components/         # Header, Hero, AppsSection, Ethos, Suggest, Footer …
+├─ components/         # Header, Hero, AppsSection, Suggest, Footer …
 └─ data/
    ├─ apps.ts          # ← The single source of truth for the portfolio
    └─ site.ts          # Site-wide config (name, links, contact)
@@ -140,4 +144,8 @@ are already configured on this repository.
 
 ## License
 
-[MIT](LICENSE) © Paramain. Made in the open, for everyone.
+The code for this site is [MIT](LICENSE) © Paramain. The apps it showcases are
+separate projects, each under its own open source license (several are AGPL-3.0);
+check the license in each project's repository.
+
+Made in the open, for everyone.

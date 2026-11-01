@@ -47,7 +47,7 @@ an individual is officially representing the community in public spaces.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-[mack.ryanm@gmail.com](mailto:mack.ryanm@gmail.com). All complaints will be reviewed
+[ryan@ryan-mack.dev](mailto:ryan@ryan-mack.dev). All complaints will be reviewed
 and investigated promptly and fairly.
 
 ## Attribution

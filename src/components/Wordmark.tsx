@@ -1,6 +1,6 @@
 /**
- * Paramain emblem — an open doorway / arch, signalling "open" and
- * "a way in". Inherits color via currentColor.
+ * Paramain emblem — a plain geometric "P" with a small amber dot sitting
+ * beside it ("para" means beside). The P inherits colour via currentColor.
  */
 export function Wordmark({ className }: { className?: string }) {
   return (
@@ -11,18 +11,19 @@ export function Wordmark({ className }: { className?: string }) {
       className={className}
     >
       <path
-        d="M6 28V14a10 10 0 0 1 20 0v14"
+        d="M9 28V4"
         stroke="currentColor"
-        strokeWidth="2.6"
+        strokeWidth="4.4"
         strokeLinecap="round"
       />
-      <path
-        d="M13 28v-7a3 3 0 0 1 6 0v7"
+      <circle
+        cx="17"
+        cy="11.5"
+        r="7.2"
         stroke="currentColor"
-        strokeWidth="2.6"
-        strokeLinecap="round"
+        strokeWidth="4.4"
       />
-      <circle cx="16" cy="13" r="1.8" fill="currentColor" />
+      <circle cx="26.5" cy="25" r="2.8" fill="var(--color-amber)" />
     </svg>
   );
 }
