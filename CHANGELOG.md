@@ -8,6 +8,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- New logo: an open doorway with a bright core and slowly orbiting
+  satellites in the other projects' colours — one main project, the rest
+  circling alongside. Updated in the header, footer, and favicons.
 - Display font switched from Fraunces to Source Serif 4; Fraunces' curled,
   wavy "f" looked uneven in large headings.
 - **DBD Manager** is now **Streamer Tools**, at

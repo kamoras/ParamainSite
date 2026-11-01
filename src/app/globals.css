@@ -284,3 +284,20 @@
     animation: none;
   }
 }
+
+/* The logo's satellites orbit the core. */
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.anim-orbit {
+  animation: orbit 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-orbit {
+    animation: none;
+  }
+}
