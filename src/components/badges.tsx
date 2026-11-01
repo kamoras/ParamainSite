@@ -28,7 +28,7 @@ export function StatusBadge({
 }) {
   return (
     <span
-      className={`border-line bg-canvas text-ink-soft inline-flex items-center gap-1.5 rounded-full border py-1 text-xs font-medium ${SIZE[size].pad}`}
+      className={`border-line-strong/40 text-ink-soft label inline-flex items-center gap-1.5 rounded-sm border py-0.5 ${SIZE[size].pad}`}
     >
       <span className={`h-1.5 w-1.5 rounded-full ${STATUS_DOT[status]}`} />
       {STATUS_LABEL[status]}
@@ -46,9 +46,9 @@ export function SourceBadge({
   const isOpen = source === "open";
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full py-1 text-xs ${SIZE[size].pad} ${SIZE[size].weight}`}
+      className={`label inline-flex items-center gap-1.5 rounded-sm border py-0.5 ${SIZE[size].pad}`}
       style={{
-        background: isOpen ? "var(--color-sage-soft)" : "var(--color-line)",
+        borderColor: isOpen ? "var(--color-sage)" : "var(--color-line)",
         color: isOpen ? "var(--color-sage)" : "var(--color-ink-soft)",
       }}
       title={isOpen ? "Open source" : "Source not public"}

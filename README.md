@@ -62,7 +62,7 @@ The rest of the portfolio, shown in descending order of priority below the flags
 - **[Next.js 16](https://nextjs.org)** (App Router, React 19, TypeScript)
 - **[Tailwind CSS v4](https://tailwindcss.com)** with a custom warm design system
 - **[next/font](https://nextjs.org/docs/app/api-reference/components/font)** —
-  Source Serif 4 (display) + Hanken Grotesk (body)
+  Source Serif 4 (text and display) + IBM Plex Mono (small labels)
 - Zero client-side data dependencies; deploys statically to
   **[Vercel](https://vercel.com)**
 

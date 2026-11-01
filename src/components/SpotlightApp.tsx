@@ -61,22 +61,11 @@ export function SpotlightApp({ app }: { app: ParamainApp }) {
         } as React.CSSProperties
       }
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full opacity-60 blur-3xl"
-        style={{ background: "var(--accent-soft)" }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-1"
-        style={{ background: "var(--accent)" }}
-      />
-
       <div className="relative grid gap-10 p-8 sm:p-12 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-14">
         <div>
           <div className="flex flex-wrap items-center gap-3">
             <span
-              className="text-surface inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-[0.14em] uppercase"
+              className="text-surface label inline-flex items-center gap-2 rounded-sm px-3 py-1"
               style={{ background: "var(--accent)" }}
             >
               <Train className="h-3.5 w-3.5" />
@@ -103,7 +92,7 @@ export function SpotlightApp({ app }: { app: ParamainApp }) {
             {app.tags.map((tag) => (
               <li
                 key={tag}
-                className="border-line bg-canvas text-ink-soft rounded-full border px-3 py-1 text-xs font-medium"
+                className="border-line bg-canvas text-ink-soft rounded-sm border px-3 py-1 text-xs font-medium"
               >
                 {tag}
               </li>
@@ -115,7 +104,7 @@ export function SpotlightApp({ app }: { app: ParamainApp }) {
               href={app.url}
               target="_blank"
               rel="noreferrer"
-              className="text-surface shadow-soft inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-base font-medium transition-transform hover:-translate-y-0.5"
+              className="text-surface shadow-soft inline-flex items-center gap-2 rounded-sm px-6 py-3.5 text-base font-medium"
               style={{ background: "var(--accent)" }}
             >
               Find your train at {displayDomain(app.url)}
@@ -126,7 +115,7 @@ export function SpotlightApp({ app }: { app: ParamainApp }) {
                 href={app.repo}
                 target="_blank"
                 rel="noreferrer"
-                className="border-line-strong text-ink hover:bg-canvas inline-flex items-center gap-2 rounded-full border px-6 py-3.5 text-base font-medium transition-colors"
+                className="border-line-strong text-ink hover:bg-canvas inline-flex items-center gap-2 rounded-sm border px-6 py-3.5 text-base font-medium transition-colors"
               >
                 <GithubIcon className="h-4 w-4" />
                 Read the source
@@ -139,12 +128,12 @@ export function SpotlightApp({ app }: { app: ParamainApp }) {
         {/* The decorative departure-board card. */}
         <div
           aria-hidden="true"
-          className="bg-ink text-surface shadow-lift overflow-hidden rounded-3xl transition-transform duration-500 group-hover:-rotate-[0.6deg]"
+          className="bg-ink text-surface shadow-lift overflow-hidden rounded-md duration-500"
         >
           <TransitMap className="block h-auto w-full" />
 
           <div className="border-surface/10 border-t px-5 py-4">
-            <div className="text-surface/60 flex items-center justify-between text-[0.65rem] font-semibold tracking-[0.16em] uppercase">
+            <div className="text-surface/60 label flex items-center justify-between">
               <span>Where&apos;s my train?</span>
               <span>Sample board</span>
             </div>

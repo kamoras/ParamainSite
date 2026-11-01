@@ -1,139 +1,49 @@
-import { apps, displayDomain, featuredApp } from "@/data/apps";
+import { apps } from "@/data/apps";
 import { site } from "@/data/site";
-import { ArrowDown } from "./icons";
 
 export function Hero() {
-  const liveCount = apps.filter((a) => a.status === "live").length;
-  const openCount = apps.filter((a) => a.source === "open").length;
-  const allOpen = apps.length > 0 && openCount === apps.length;
-
   return (
-    <section className="relative overflow-hidden">
-      <div className="wrap pt-20 pb-16 sm:pt-28 sm:pb-24">
-        <p
-          className="reveal text-ink-soft flex items-center gap-2.5 text-sm font-medium tracking-wide"
-          style={{ animationDelay: "60ms" }}
-        >
-          <span className="bg-sage inline-flex h-2 w-2 rounded-full" />A
-          portfolio of free, independent apps
+    <section>
+      <div className="wrap pt-16 pb-14 sm:pt-24 sm:pb-20">
+        <p className="label text-ink-soft">
+          Made by {site.author}, in spare time
         </p>
 
-        <h1
-          className="reveal font-display mt-6 max-w-4xl text-[clamp(2.75rem,7vw,5.5rem)] leading-[0.98] font-light tracking-[-0.02em]"
-          style={{ animationDelay: "140ms" }}
-        >
-          Software should be{" "}
-          <span className="text-terracotta relative whitespace-nowrap">
-            accessible
-            <Underline />
-          </span>{" "}
-          to everyone.
+        <h1 className="font-display mt-6 max-w-4xl text-[clamp(2.75rem,7.5vw,5.75rem)] leading-[1] font-light">
+          Software should be <span className="marker">accessible</span> to
+          everyone.
         </h1>
 
-        <p
-          className="reveal text-ink-soft mt-7 max-w-xl text-lg leading-relaxed"
-          style={{ animationDelay: "230ms" }}
-        >
-          {site.name} is a small workshop of useful tools — free to use,
-          privacy-first, and made to respect the people who use them. Open
-          source, all the way down. No ads, no lock-in, no surveillance.
+        <p className="text-ink-soft mt-8 max-w-xl text-xl leading-relaxed">
+          This is where I keep the things I build. They&apos;re free,
+          they&apos;re open source, none of them show ads or track you, and
+          it&apos;s all volunteer work, done for the love of it.
         </p>
 
-        {featuredApp ? (
-          <p
-            className="reveal text-ink-soft mt-4 max-w-xl text-lg leading-relaxed"
-            style={{ animationDelay: "280ms" }}
-          >
-            Its center of gravity is{" "}
-            <a
-              href={featuredApp.url}
-              target="_blank"
-              rel="noreferrer"
-              className="text-terracotta font-medium underline-offset-4 hover:underline"
-            >
-              {featuredApp.name}
-            </a>{" "}
-            at {displayDomain(featuredApp.url)} —{" "}
-            {`${lowerFirst(featuredApp.tagline)}.`} Everything here is built by
-            volunteer effort, for the love of it.
-          </p>
-        ) : null}
-
-        <div
-          className="reveal mt-10 flex flex-wrap items-center gap-4"
-          style={{ animationDelay: "320ms" }}
-        >
-          <a
-            href="#apps"
-            className="group bg-ink text-surface shadow-soft inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-base font-medium transition-transform hover:-translate-y-0.5"
-          >
-            {featuredApp
-              ? `Start with ${featuredApp.name}`
-              : "Explore the apps"}
-            <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
-          </a>
-          <a
-            href="#suggest"
-            className="border-line-strong text-ink hover:bg-surface inline-flex items-center gap-2 rounded-full border px-6 py-3.5 text-base font-medium transition-colors"
-          >
-            Suggest an idea
-          </a>
-        </div>
-
-        <dl
-          className="reveal border-line mt-16 flex flex-wrap gap-x-12 gap-y-6 border-t pt-8"
-          style={{ animationDelay: "420ms" }}
-        >
-          <Stat value={String(apps.length)} label="apps in the portfolio" />
-          <Stat value={String(liveCount)} label="live right now" />
-          <Stat
-            value={allOpen ? "100%" : String(openCount)}
-            label="open source"
-          />
-          <Stat value="$0" label="forever, no ads" />
-        </dl>
+        <nav aria-label="Projects" className="mt-12 max-w-xl">
+          <p className="label text-ink-soft">The index</p>
+          <ol className="border-line divide-line mt-3 divide-y border-y">
+            {apps.map((app, i) => (
+              <li key={app.slug}>
+                <a
+                  href={`#${app.slug}`}
+                  className="hover:bg-surface group flex items-baseline gap-4 px-1 py-2.5"
+                >
+                  <span className="label text-muted w-6">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-lg font-medium underline-offset-4 group-hover:underline">
+                    {app.name}
+                  </span>
+                  <span className="text-ink-soft hidden min-w-0 flex-1 truncate text-sm sm:block">
+                    {app.tagline}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
       </div>
     </section>
-  );
-}
-
-/**
- * Drops a tagline into the middle of a sentence. Only decapitalises an
- * ordinary sentence-case word, so a tagline opening on an acronym ("AI for
- * everyone") is left alone rather than mangled into "aI for everyone".
- */
-function lowerFirst(text: string): string {
-  return /^[A-Z][a-z]/.test(text)
-    ? text.charAt(0).toLowerCase() + text.slice(1)
-    : text;
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <dt className="font-display text-ink text-4xl font-medium tracking-tight">
-        {value}
-      </dt>
-      <dd className="text-ink-soft mt-1 text-sm">{label}</dd>
-    </div>
-  );
-}
-
-function Underline() {
-  return (
-    <svg
-      className="text-amber absolute -bottom-2 left-0 w-full"
-      viewBox="0 0 300 12"
-      fill="none"
-      preserveAspectRatio="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M2 8C60 3 120 3 160 6c40 3 90 2 138-3"
-        stroke="currentColor"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
-    </svg>
   );
 }

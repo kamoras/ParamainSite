@@ -8,6 +8,11 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- **Restyled the whole site** to feel less like a template and more like one
+  person's notes: flat paper and ink with colour saved for the projects,
+  hairline rules and square corners instead of glows and soft cards, a serif for
+  text with IBM Plex Mono for small labels, a marker highlight, a project
+  index in the hero, and first-person copy throughout.
 - New logo: a geometric "P" with a small amber dot beside it ("para" means
   beside). Updated in the header, footer, and favicons.
 - Display font switched from Fraunces to Source Serif 4; Fraunces' curled,

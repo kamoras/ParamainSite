@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Source_Serif_4, Hanken_Grotesk } from "next/font/google";
+import { IBM_Plex_Mono, Source_Serif_4 } from "next/font/google";
 import { site } from "@/data/site";
 import "./globals.css";
 
 const display = Source_Serif_4({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-serif-loaded",
   display: "swap",
   // Source Serif 4: its f and t stay evenly spaced with plain strokes at
   // display sizes. Fraunces (wavy f) and Newsreader (hairline f/t that
@@ -13,9 +13,10 @@ const display = Source_Serif_4({
   axes: ["opsz"],
 });
 
-const sans = Hanken_Grotesk({
+const mono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-sans",
+  weight: ["400", "500"],
+  variable: "--font-mono-loaded",
   display: "swap",
 });
 
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f7f1e6",
+  themeColor: "#f4f1ea",
   colorScheme: "light",
 };
 
@@ -70,7 +71,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable}`}>
+    <html lang="en" className={`${display.variable} ${mono.variable}`}>
       <body>
         <a href="#main" className="skip-link">
           Skip to content

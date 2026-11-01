@@ -12,9 +12,9 @@ function CivitasVisual() {
   return (
     <div
       aria-hidden="true"
-      className="bg-ink text-surface shadow-lift overflow-hidden rounded-3xl"
+      className="bg-ink text-surface shadow-lift overflow-hidden rounded-md"
     >
-      <div className="text-surface/60 flex items-center justify-between px-5 pt-4 text-[0.65rem] font-semibold tracking-[0.16em] uppercase">
+      <div className="text-surface/60 label flex items-center justify-between px-5 pt-4">
         <span>Public record</span>
         <span>Plain language</span>
       </div>
@@ -26,12 +26,12 @@ function CivitasVisual() {
             {legalese.map((w, i) => (
               <div
                 key={i}
-                className="bg-surface/25 h-1.5 rounded-full"
+                className="bg-surface/25 h-1.5 rounded-sm"
                 style={{ width: `${w}%` }}
               />
             ))}
           </div>
-          <div className="anim-scan bg-terracotta/40 absolute inset-x-0 top-0 h-3 rounded-full blur-[2px]" />
+          <div className="anim-scan bg-terracotta/40 absolute inset-x-0 top-0 h-3 rounded-sm blur-[2px]" />
         </div>
 
         <span className="text-terracotta text-xl">→</span>
@@ -43,8 +43,8 @@ function CivitasVisual() {
               <div className="text-terracotta text-[0.6rem] font-semibold tracking-[0.12em] uppercase">
                 {h}
               </div>
-              <div className="bg-ink/15 mt-1 h-1.5 w-full rounded-full" />
-              <div className="bg-ink/15 mt-1 h-1.5 w-2/3 rounded-full" />
+              <div className="bg-ink/15 mt-1 h-1.5 w-full rounded-sm" />
+              <div className="bg-ink/15 mt-1 h-1.5 w-2/3 rounded-sm" />
             </div>
           ))}
         </div>
@@ -161,9 +161,9 @@ function SplicedVisual() {
   return (
     <div
       aria-hidden="true"
-      className="border-line-strong bg-amber-soft/60 shadow-soft overflow-hidden rounded-3xl border"
+      className="border-line-strong bg-amber-soft/60 shadow-soft overflow-hidden rounded-md border"
     >
-      <div className="text-ink-soft flex items-center justify-between px-5 pt-4 text-[0.65rem] font-semibold tracking-[0.16em] uppercase">
+      <div className="text-ink-soft label flex items-center justify-between px-5 pt-4">
         <span>Today&apos;s splice</span>
         <span>Sample puzzle</span>
       </div>
@@ -188,7 +188,7 @@ function SplicedVisual() {
             })}
           </div>
         ))}
-        <span className="anim-playhead bg-ink absolute top-0 bottom-0 w-0.5 rounded-full" />
+        <span className="anim-playhead bg-ink absolute top-0 bottom-0 w-0.5 rounded-sm" />
       </div>
 
       {/* The mystery track. */}
@@ -211,7 +211,7 @@ function SplicedVisual() {
             ),
           )}
         </div>
-        <span className="bg-ink text-surface rounded-full px-3 py-1 text-xs font-semibold">
+        <span className="bg-ink text-surface rounded-sm px-3 py-1 text-xs font-semibold">
           12-day streak
         </span>
       </div>

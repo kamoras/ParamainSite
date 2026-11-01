@@ -42,122 +42,98 @@ export function Suggest() {
     return `mailto:${site.email}?${params.toString()}`;
   }, [kind, title, details]);
 
+  const field =
+    "bg-transparent text-ink placeholder:text-muted focus:border-ink mt-2 w-full border-0 border-b border-ink/40 px-0 py-2.5 text-lg focus:outline-none";
+
   return (
-    <section id="suggest" className="scroll-mt-24">
-      <div className="wrap py-20 sm:py-28">
-        <div className="border-line bg-ink text-surface relative overflow-hidden rounded-[2rem] border px-6 py-14 sm:px-14 sm:py-20">
-          <Glow />
-          <div className="relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
-              <span className="text-amber inline-flex items-center gap-2.5 text-sm font-semibold tracking-[0.16em] uppercase">
-                <span className="bg-amber h-px w-8" />
-                Always building
-              </span>
-              <h2 className="font-display mt-4 text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] font-light tracking-[-0.02em]">
-                Got an idea worth building?
-              </h2>
-              <p className="text-surface/70 mt-5 max-w-md text-lg leading-relaxed">
-                The best tools start as someone&apos;s small frustration. Tell
-                us what should exist — it opens a public issue you can track,
-                discuss, and watch get built.
-              </p>
+    <section id="suggest" className="border-line scroll-mt-16 border-t">
+      <div className="wrap py-16 sm:py-24">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div>
+            <p className="label text-ink-soft">Ideas</p>
+            <h2 className="font-display mt-4 text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] font-light">
+              Got an idea? <span className="marker">Tell me.</span>
+            </h2>
+            <p className="text-ink-soft mt-5 max-w-md text-lg leading-relaxed">
+              The best tools start as someone&apos;s small frustration. Tell me
+              what should exist. It opens a public issue on GitHub, so you can
+              follow along if it gets built.
+            </p>
+          </div>
+
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              window.open(issueUrl, "_blank", "noopener,noreferrer");
+            }}
+            className="border-line-strong bg-surface rounded-card border p-6 sm:p-9"
+          >
+            <fieldset>
+              <legend className="label text-ink-soft">What is it?</legend>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {KINDS.map((k) => (
+                  <button
+                    key={k}
+                    type="button"
+                    onClick={() => setKind(k)}
+                    aria-pressed={kind === k}
+                    className={`rounded-sm border px-3.5 py-2 text-[0.95rem] transition-colors ${
+                      kind === k
+                        ? "border-ink bg-ink text-surface"
+                        : "border-ink/30 hover:border-ink"
+                    }`}
+                  >
+                    {k}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+
+            <div className="mt-8">
+              <label htmlFor="idea-title" className="label text-ink-soft">
+                Give it a name
+              </label>
+              <input
+                id="idea-title"
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="e.g. A privacy-first habit tracker"
+                className={field}
+              />
             </div>
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                window.open(issueUrl, "_blank", "noopener,noreferrer");
-              }}
-              className="rounded-card border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm sm:p-8"
-            >
-              <fieldset>
-                <legend className="text-surface/70 text-sm font-medium">
-                  What is it?
-                </legend>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {KINDS.map((k) => (
-                    <button
-                      key={k}
-                      type="button"
-                      onClick={() => setKind(k)}
-                      aria-pressed={kind === k}
-                      className={`rounded-full border px-4 py-2 text-sm transition-colors ${
-                        kind === k
-                          ? "border-amber bg-amber text-ink"
-                          : "text-surface/80 border-white/15 hover:border-white/40"
-                      }`}
-                    >
-                      {k}
-                    </button>
-                  ))}
-                </div>
-              </fieldset>
+            <div className="mt-7">
+              <label htmlFor="idea-details" className="label text-ink-soft">
+                What problem does it solve?
+              </label>
+              <textarea
+                id="idea-details"
+                value={details}
+                onChange={(e) => setDetails(e.target.value)}
+                rows={4}
+                placeholder="Who's it for, and what should it do?"
+                className={`${field} resize-y`}
+              />
+            </div>
 
-              <div className="mt-6">
-                <label
-                  htmlFor="idea-title"
-                  className="text-surface/70 text-sm font-medium"
-                >
-                  Give it a name
-                </label>
-                <input
-                  id="idea-title"
-                  type="text"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  placeholder="e.g. A privacy-first habit tracker"
-                  className="bg-ink/40 text-surface placeholder:text-surface/35 focus:border-amber mt-2 w-full rounded-xl border border-white/15 px-4 py-3 focus:outline-none"
-                />
-              </div>
-
-              <div className="mt-5">
-                <label
-                  htmlFor="idea-details"
-                  className="text-surface/70 text-sm font-medium"
-                >
-                  What problem does it solve?
-                </label>
-                <textarea
-                  id="idea-details"
-                  value={details}
-                  onChange={(e) => setDetails(e.target.value)}
-                  rows={4}
-                  placeholder="Who's it for, and what should it do?"
-                  className="bg-ink/40 text-surface placeholder:text-surface/35 focus:border-amber mt-2 w-full resize-y rounded-xl border border-white/15 px-4 py-3 focus:outline-none"
-                />
-              </div>
-
-              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
-                <button
-                  type="submit"
-                  className="bg-amber text-ink inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-base font-semibold transition-transform hover:-translate-y-0.5"
-                >
-                  Open an idea on GitHub
-                </button>
-                <a
-                  href={mailtoUrl}
-                  className="text-surface/70 hover:text-surface text-sm font-medium underline-offset-4 transition-colors hover:underline"
-                >
-                  Prefer email? Send it here
-                </a>
-              </div>
-            </form>
-          </div>
+            <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <button
+                type="submit"
+                className="bg-ink text-surface hover:bg-terracotta rounded-sm px-5 py-3 text-base font-medium transition-colors"
+              >
+                Open an idea on GitHub →
+              </button>
+              <a
+                href={mailtoUrl}
+                className="text-ink-soft hover:text-ink text-[0.95rem] underline underline-offset-4"
+              >
+                or email it to me
+              </a>
+            </div>
+          </form>
         </div>
       </div>
     </section>
-  );
-}
-
-function Glow() {
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0"
-      style={{
-        background:
-          "radial-gradient(40rem 24rem at 12% 0%, #cf8a1f33, transparent 60%), radial-gradient(34rem 24rem at 100% 100%, #c2552d33, transparent 60%)",
-      }}
-    />
   );
 }

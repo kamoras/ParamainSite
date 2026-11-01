@@ -28,22 +28,13 @@ export function WideApp({
         } as React.CSSProperties
       }
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-20 -left-16 h-56 w-56 rounded-full opacity-50 blur-3xl"
-        style={{ background: "var(--accent-soft)" }}
-      />
-
       <div className="relative grid gap-8 p-7 sm:p-9 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12">
         <div>
           <div className="flex flex-wrap items-center gap-2">
             <StatusBadge status={app.status} />
             <SourceBadge source={app.source} />
           </div>
-          <p
-            className="mt-6 text-xs font-semibold tracking-[0.14em] uppercase"
-            style={{ color: "var(--accent)" }}
-          >
+          <p className="label mt-6" style={{ color: "var(--accent)" }}>
             {app.category}
           </p>
           <h3 className="font-display mt-2 text-3xl font-medium">{app.name}</h3>
@@ -56,7 +47,7 @@ export function WideApp({
             {app.tags.map((tag) => (
               <li
                 key={tag}
-                className="border-line bg-canvas text-ink-soft rounded-full border px-3 py-1 text-xs font-medium"
+                className="border-line bg-canvas text-ink-soft rounded-sm border px-3 py-1 text-xs font-medium"
               >
                 {tag}
               </li>
@@ -68,7 +59,7 @@ export function WideApp({
               href={app.url}
               target="_blank"
               rel="noreferrer"
-              className="text-surface shadow-soft inline-flex items-center gap-2 rounded-full px-5 py-3 text-[0.95rem] font-medium transition-transform hover:-translate-y-0.5"
+              className="text-surface shadow-soft inline-flex items-center gap-2 rounded-sm px-5 py-3 text-[0.95rem] font-medium"
               style={{ background: "var(--accent)" }}
             >
               Play at {displayDomain(app.url)}
@@ -79,7 +70,7 @@ export function WideApp({
                 href={app.repo}
                 target="_blank"
                 rel="noreferrer"
-                className="border-line-strong text-ink hover:bg-canvas inline-flex items-center gap-2 rounded-full border px-5 py-3 text-[0.95rem] font-medium transition-colors"
+                className="border-line-strong text-ink hover:bg-canvas inline-flex items-center gap-2 rounded-sm border px-5 py-3 text-[0.95rem] font-medium transition-colors"
               >
                 <GithubIcon className="h-4 w-4" />
                 Read the source

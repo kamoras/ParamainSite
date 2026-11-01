@@ -22,23 +22,11 @@ export function FeaturedApp({ app }: { app: ParamainApp }) {
         } as React.CSSProperties
       }
     >
-      {/* A broad accent wash so the panel glows against the parchment. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-32 -right-24 h-96 w-96 rounded-full opacity-60 blur-3xl transition-opacity duration-500 group-hover:opacity-90"
-        style={{ background: "var(--accent-soft)" }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-1"
-        style={{ background: "var(--accent)" }}
-      />
-
       <div className="relative grid gap-10 p-8 sm:p-12 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
         <div>
           <div className="flex flex-wrap items-center gap-3">
             <span
-              className="text-surface inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-[0.14em] uppercase"
+              className="text-surface label inline-flex items-center gap-2 rounded-sm px-3 py-1"
               style={{ background: "var(--accent)" }}
             >
               <Star className="h-3.5 w-3.5" />
@@ -50,7 +38,7 @@ export function FeaturedApp({ app }: { app: ParamainApp }) {
 
           <div className="mt-8 flex items-start gap-5">
             <div
-              className="font-display text-surface flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-3xl font-semibold"
+              className="font-display text-surface flex h-16 w-16 shrink-0 items-center justify-center rounded-md text-3xl font-semibold"
               style={{ background: "var(--accent)" }}
             >
               {app.monogram}
@@ -79,7 +67,7 @@ export function FeaturedApp({ app }: { app: ParamainApp }) {
             {app.tags.map((tag) => (
               <li
                 key={tag}
-                className="border-line bg-canvas text-ink-soft rounded-full border px-3 py-1 text-xs font-medium"
+                className="border-line bg-canvas text-ink-soft rounded-sm border px-3 py-1 text-xs font-medium"
               >
                 {tag}
               </li>
@@ -91,7 +79,7 @@ export function FeaturedApp({ app }: { app: ParamainApp }) {
               href={app.url}
               target="_blank"
               rel="noreferrer"
-              className="text-surface shadow-soft inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-base font-medium transition-transform hover:-translate-y-0.5"
+              className="text-surface shadow-soft inline-flex items-center gap-2 rounded-sm px-6 py-3.5 text-base font-medium"
               style={{ background: "var(--accent)" }}
             >
               Visit {displayDomain(app.url)}
@@ -102,7 +90,7 @@ export function FeaturedApp({ app }: { app: ParamainApp }) {
                 href={app.repo}
                 target="_blank"
                 rel="noreferrer"
-                className="border-line-strong text-ink hover:bg-canvas inline-flex items-center gap-2 rounded-full border px-6 py-3.5 text-base font-medium transition-colors"
+                className="border-line-strong text-ink hover:bg-canvas inline-flex items-center gap-2 rounded-sm border px-6 py-3.5 text-base font-medium transition-colors"
               >
                 <GithubIcon className="h-4 w-4" />
                 Read the source
@@ -118,9 +106,7 @@ export function FeaturedApp({ app }: { app: ParamainApp }) {
             <dl className="border-line bg-canvas/60 rounded-card divide-line grid h-fit grid-cols-2 border p-2 [&>div]:border-b [&>div]:border-[var(--color-line)] [&>div:nth-last-child(-n+2)]:border-b-0">
               {app.highlights.map((h) => (
                 <div key={h.label} className="px-4 py-3.5">
-                  <dt className="text-ink-soft text-xs font-semibold tracking-[0.14em] uppercase">
-                    {h.label}
-                  </dt>
+                  <dt className="text-ink-soft label">{h.label}</dt>
                   <dd className="text-ink mt-1.5 text-[0.92rem] leading-snug font-medium">
                     {h.value}
                   </dd>
