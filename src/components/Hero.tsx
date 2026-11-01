@@ -54,8 +54,8 @@ export function Hero() {
               {featuredApp.name}
             </a>{" "}
             at {displayDomain(featuredApp.url)} —{" "}
-            {`${lowerFirst(featuredApp.tagline)}.`} Everything else here is a
-            side project.
+            {`${lowerFirst(featuredApp.tagline)}.`} Everything here is built by
+            volunteer effort, for the love of it.
           </p>
         ) : null}
 

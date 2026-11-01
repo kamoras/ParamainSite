@@ -43,7 +43,7 @@ On the site it gets its own feature panel above the rest of the portfolio (see
 
 ### The rest of the shelf
 
-Smaller side projects, shown as grid cards below the flagship:
+The rest of the portfolio, shown in descending order of priority below the flagship:
 
 | App                                                   | What it is                                                                               | Source |
 | ----------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------ |

@@ -5,7 +5,7 @@ import { ArrowUpRight, GithubIcon, Star } from "./icons";
 
 /**
  * The flagship panel. Deliberately much louder than an AppCard: it carries
- * the portfolio, and everything below it reads as a side project by contrast.
+ * the portfolio, and everything below it is quieter by contrast.
  */
 export function FeaturedApp({ app }: { app: ParamainApp }) {
   const accent = ACCENTS[app.accent];
