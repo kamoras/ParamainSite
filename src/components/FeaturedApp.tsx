@@ -2,6 +2,7 @@ import { displayDomain, type ParamainApp } from "@/data/apps";
 import { ACCENTS } from "./accents";
 import { SourceBadge, StatusBadge } from "./badges";
 import { ArrowUpRight, GithubIcon, Star } from "./icons";
+import { APP_VISUALS } from "./visuals";
 
 /**
  * The flagship panel. Deliberately much louder than an AppCard: it carries
@@ -111,20 +112,23 @@ export function FeaturedApp({ app }: { app: ParamainApp }) {
           </div>
         </div>
 
-        {app.highlights?.length ? (
-          <dl className="border-line bg-canvas/60 rounded-card divide-line h-fit divide-y border p-2">
-            {app.highlights.map((h) => (
-              <div key={h.label} className="px-5 py-4">
-                <dt className="text-ink-soft text-xs font-semibold tracking-[0.14em] uppercase">
-                  {h.label}
-                </dt>
-                <dd className="text-ink mt-1.5 text-[0.98rem] font-medium">
-                  {h.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        ) : null}
+        <div className="flex h-fit flex-col gap-5">
+          {APP_VISUALS[app.slug]}
+          {app.highlights?.length ? (
+            <dl className="border-line bg-canvas/60 rounded-card divide-line grid h-fit grid-cols-2 border p-2 [&>div]:border-b [&>div]:border-[var(--color-line)] [&>div:nth-last-child(-n+2)]:border-b-0">
+              {app.highlights.map((h) => (
+                <div key={h.label} className="px-4 py-3.5">
+                  <dt className="text-ink-soft text-xs font-semibold tracking-[0.14em] uppercase">
+                    {h.label}
+                  </dt>
+                  <dd className="text-ink mt-1.5 text-[0.92rem] leading-snug font-medium">
+                    {h.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          ) : null}
+        </div>
       </div>
     </article>
   );

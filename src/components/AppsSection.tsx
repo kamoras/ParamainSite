@@ -9,6 +9,8 @@ import { AppCard } from "./AppCard";
 import { FeaturedApp } from "./FeaturedApp";
 import { Reveal } from "./Reveal";
 import { SpotlightApp } from "./SpotlightApp";
+import { WideApp } from "./WideApp";
+import { APP_VISUALS } from "./visuals";
 
 /**
  * The portfolio, loudest to quietest: the flagship panel, the spotlight panel,
@@ -66,7 +68,11 @@ export function AppsSection() {
             <div className="mt-10 grid gap-6">
               {standardApps.map((app, i) => (
                 <Reveal as="div" key={app.slug} delay={i * 90}>
-                  <AppCard app={app} />
+                  {APP_VISUALS[app.slug] ? (
+                    <WideApp app={app} visual={APP_VISUALS[app.slug]} />
+                  ) : (
+                    <AppCard app={app} />
+                  )}
                 </Reveal>
               ))}
             </div>

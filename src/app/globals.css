@@ -222,3 +222,65 @@
     animation: none;
   }
 }
+
+/* Decorative motion for the app visuals (Civitas scan, Spliced waveform). */
+@keyframes scan {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(1400%);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes bounce-bar {
+  0%,
+  100% {
+    transform: scaleY(0.45);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes playhead {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.anim-scan {
+  animation: scan 5s ease-in-out infinite;
+}
+.anim-blink {
+  animation: blink 1.6s ease-in-out infinite;
+}
+.anim-bar {
+  transform-origin: center;
+  animation: bounce-bar 1.4s ease-in-out infinite;
+}
+.anim-playhead {
+  animation: playhead 7s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-scan,
+  .anim-blink,
+  .anim-bar,
+  .anim-playhead {
+    animation: none;
+  }
+}
