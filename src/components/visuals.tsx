@@ -6,48 +6,66 @@ import type { ReactNode } from "react";
  * assistive tech — the panels carry the real information as text.
  */
 
-/** Civitas: dense public record in, plain language out, on a Raspberry Pi. */
+/** Civitas: one pane of glass over the whole federal government. */
 function CivitasVisual() {
-  const legalese = [92, 100, 78, 96, 88, 100, 64, 94, 82, 98];
+  const panes = [
+    { name: "Congress", bars: [40, 70, 55, 90, 60] },
+    { name: "White House", bars: [60, 35, 80, 50, 70] },
+    { name: "Agencies", bars: [75, 55, 40, 65, 85] },
+    { name: "Supreme Court", bars: [50, 80, 45, 70, 55] },
+    { name: "Elections", bars: [35, 60, 90, 55, 75] },
+    { name: "Action Center", bars: [65, 45, 70, 85, 40] },
+  ];
   return (
     <div
       aria-hidden="true"
-      className="bg-ink text-surface shadow-lift overflow-hidden rounded-md"
+      className="bg-ink text-surface overflow-hidden rounded-md"
     >
-      <div className="text-surface/60 label flex items-center justify-between px-5 pt-4">
-        <span>Public record</span>
-        <span>Plain language</span>
+      <div className="label text-surface/60 flex items-center justify-between px-5 pt-4">
+        <span>One pane of glass</span>
+        <span>U.S. federal government</span>
       </div>
 
-      <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-3 px-5 py-4">
-        {/* The dense source text, with a scanning highlight. */}
-        <div className="relative min-h-36 overflow-hidden rounded-xl bg-white/5 p-3">
-          <div className="space-y-2">
-            {legalese.map((w, i) => (
-              <div
-                key={i}
-                className="bg-surface/25 h-1.5 rounded-sm"
-                style={{ width: `${w}%` }}
-              />
-            ))}
-          </div>
-          <div className="anim-scan bg-terracotta/40 absolute inset-x-0 top-0 h-3 rounded-sm blur-[2px]" />
-        </div>
+      {/* A search box over everything. */}
+      <div className="mx-5 mt-4 flex items-center gap-3 rounded-sm border border-white/15 bg-white/5 px-3.5 py-2.5">
+        <svg
+          viewBox="0 0 24 24"
+          className="text-surface/60 h-4 w-4 shrink-0"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        >
+          <circle cx="11" cy="11" r="6.5" />
+          <path d="m20 20-4.2-4.2" />
+        </svg>
+        <span className="text-surface/60 font-mono text-[0.8rem]">
+          Search votes, bills, agencies, courts
+        </span>
+        <span className="anim-blink bg-surface/70 h-4 w-px" />
+      </div>
 
-        <span className="text-terracotta text-xl">→</span>
-
-        {/* The plain-language summary. */}
-        <div className="bg-surface text-ink min-h-36 rounded-xl p-3">
-          {["What it does", "Who it affects", "What it costs"].map((h) => (
-            <div key={h} className="mb-2.5 last:mb-0">
-              <div className="text-terracotta text-[0.6rem] font-semibold tracking-[0.12em] uppercase">
-                {h}
-              </div>
-              <div className="bg-ink/15 mt-1 h-1.5 w-full rounded-sm" />
-              <div className="bg-ink/15 mt-1 h-1.5 w-2/3 rounded-sm" />
+      {/* Every branch, side by side. */}
+      <div className="grid grid-cols-3 gap-2.5 px-5 py-4">
+        {panes.map((pane, i) => (
+          <div key={pane.name} className="rounded-sm bg-white/5 p-2.5">
+            <div className="font-mono text-[0.65rem] leading-tight">
+              {pane.name}
             </div>
-          ))}
-        </div>
+            <div className="mt-2.5 flex h-8 items-end gap-1">
+              {pane.bars.map((h, j) => (
+                <span
+                  key={j}
+                  className="anim-bar bg-terracotta/80 w-full rounded-[1px]"
+                  style={{
+                    height: `${h}%`,
+                    animationDelay: `${((i + j) % 5) * 0.2}s`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* A Raspberry Pi, doing the work. */}
@@ -139,9 +157,9 @@ function CivitasVisual() {
           />
         </svg>
         <div className="text-sm leading-snug">
-          <div className="font-medium">Runs on a Raspberry Pi</div>
+          <div className="font-medium">Every figure shows its source</div>
           <div className="text-surface/60">
-            No cloud. No tracking. Just local models.
+            Runs on one Raspberry Pi. No accounts, no tracking.
           </div>
         </div>
       </div>

@@ -12,6 +12,9 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Civitas is now described as a single pane of glass for the U.S. government
+  (matching Hopline for public transit) instead of "powered by local AI":
+  new tagline, description, tags, highlights, card visual, and site metadata.
 - **Restyled the whole site** to feel less like a template and more like one
   person's notes: flat paper and ink with colour saved for the projects,
   hairline rules and square corners instead of glows and soft cards, a serif for

@@ -33,10 +33,10 @@ template for your own portfolio.
 ### The flagship
 
 **[Civitas](https://civitas-research.org)** — `civitas-research.org` — is the
-project the site is built around. It's a political transparency platform that
-runs open-weight models locally on a Raspberry Pi, distilling public records and
-legislative activity into plain language. Originally closed source, it is now
-**fully open source**: [`kamoras/civitas`](https://github.com/kamoras/civitas).
+project the site is built around. It's a single pane of glass for the U.S.
+federal government: members of Congress, the president, agencies and the
+Supreme Court, with every figure shown alongside its source. Originally closed
+source, it is now **fully open source**: [`kamoras/civitas`](https://github.com/kamoras/civitas).
 
 On the site it gets its own feature panel above the rest of the portfolio (see
 [`FeaturedApp.tsx`](src/components/FeaturedApp.tsx)).

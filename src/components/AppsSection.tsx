@@ -31,7 +31,7 @@ export function AppsSection() {
               <p className="text-ink-soft mt-5 text-lg leading-relaxed">
                 {featuredApp.name} is the reason this workshop exists — the
                 thing most of the time, care, and stubbornness goes into. It is
-                free, local-first, and now entirely open source.
+                free, entirely open source, and shows its sources.
               </p>
             </div>
 
