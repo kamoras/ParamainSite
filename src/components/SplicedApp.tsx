@@ -159,24 +159,65 @@ export function SplicedApp({ app }: { app: ParamainApp }) {
                 fill="var(--color-vu-face)"
                 stroke="var(--color-cap-edge)"
               />
+              {/* Scale, red zone and needle all share the pivot at (50, 56). */}
               <path
-                d="M16 46 A40 40 0 0 1 84 46"
+                d="M20.9 31.6 A38 38 0 0 1 79.1 31.6"
                 fill="none"
                 stroke="#3a2f1a"
                 strokeWidth="1.4"
               />
               <path
-                d="M70 21 A40 40 0 0 1 84 46"
+                d="M66.1 21.6 A38 38 0 0 1 79.1 31.6"
                 fill="none"
                 stroke="var(--color-clip-red)"
-                strokeWidth="3"
+                strokeWidth="3.2"
+              />
+              <line
+                x1="24.7"
+                y1="34.8"
+                x2="20.9"
+                y2="31.6"
+                stroke="#3a2f1a"
+                strokeWidth="1.2"
+              />
+              <line
+                x1="36.1"
+                y1="26.1"
+                x2="33.9"
+                y2="21.6"
+                stroke="#3a2f1a"
+                strokeWidth="1.2"
+              />
+              <line
+                x1="50.0"
+                y1="23.0"
+                x2="50.0"
+                y2="18.0"
+                stroke="#3a2f1a"
+                strokeWidth="1.2"
+              />
+              <line
+                x1="63.9"
+                y1="26.1"
+                x2="66.1"
+                y2="21.6"
+                stroke="#3a2f1a"
+                strokeWidth="1.2"
+              />
+              <line
+                x1="75.3"
+                y1="34.8"
+                x2="79.1"
+                y2="31.6"
+                stroke="#3a2f1a"
+                strokeWidth="1.2"
               />
               <g className="anim-needle">
                 <line
                   x1="50"
                   y1="56"
                   x2="50"
-                  y2="18"
+                  y2="22"
                   stroke="#1b1200"
                   strokeWidth="1.6"
                   strokeLinecap="round"
