@@ -159,7 +159,7 @@ function CivitasVisual() {
         <div className="text-sm leading-snug">
           <div className="font-medium">Every figure shows its source</div>
           <div className="text-surface/60">
-            Runs on one Raspberry Pi. No accounts, no tracking.
+            Runs on one Raspberry Pi. No cloud AI.
           </div>
         </div>
       </div>

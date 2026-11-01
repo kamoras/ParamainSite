@@ -16,7 +16,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-ink-soft mt-4 leading-relaxed">
-              {site.tagline} Free, open source, and built in my spare time by{" "}
+              {site.tagline} Built in my spare time by{" "}
               <a
                 href={site.authorUrl}
                 target="_blank"

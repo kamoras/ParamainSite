@@ -1,6 +1,15 @@
 import { apps } from "@/data/apps";
 import { site } from "@/data/site";
 
+/** Promises that hold for every project, so no card has to repeat them. */
+const PRINCIPLES = [
+  "Free",
+  "Open source",
+  "No ads",
+  "No lock-in",
+  "No surveillance",
+];
+
 export function Hero() {
   return (
     <section>
@@ -15,10 +24,23 @@ export function Hero() {
         </h1>
 
         <p className="text-ink-soft mt-8 max-w-xl text-xl leading-relaxed">
-          This is where I keep the things I build. They&apos;re free,
-          they&apos;re open source, none of them show ads or track you, and
-          it&apos;s all volunteer work, done for the love of it.
+          This is where I keep the things I build. It&apos;s all volunteer work,
+          done for the love of it.
         </p>
+
+        <div className="mt-8 max-w-2xl">
+          <p className="label text-ink-soft">The deal with every project</p>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {PRINCIPLES.map((p) => (
+              <li
+                key={p}
+                className="border-line-strong rounded-sm border px-3 py-1.5 text-[0.95rem]"
+              >
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <nav aria-label="Projects" className="mt-12 max-w-xl">
           <p className="label text-ink-soft">The index</p>

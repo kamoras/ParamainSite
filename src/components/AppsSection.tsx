@@ -30,8 +30,7 @@ export function AppsSection() {
               </h2>
               <p className="text-ink-soft mt-5 text-lg leading-relaxed">
                 {featuredApp.name} is the reason this workshop exists — the
-                thing most of the time, care, and stubbornness goes into. It is
-                free, entirely open source, and shows its sources.
+                thing most of the time, care, and stubbornness goes into.
               </p>
             </div>
 

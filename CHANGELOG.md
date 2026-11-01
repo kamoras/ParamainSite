@@ -12,6 +12,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- Shared promises (free, open source, no ads, no lock-in, no surveillance) are
+  now stated once in the hero instead of repeated on every project. Cards,
+  tags, and highlights now only mention what is unique to each project, and
+  the "Open source" badge is shown only for a project that is _not_ open.
 - Civitas is now described as a single pane of glass for the U.S. government
   (matching Hopline for public transit) instead of "powered by local AI":
   new tagline, description, tags, highlights, card visual, and site metadata.
