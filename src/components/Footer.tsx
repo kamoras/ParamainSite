@@ -79,9 +79,9 @@ export function Footer() {
           </nav>
         </div>
 
-        <p className="label text-muted border-line mt-12 border-t pt-6">
-          © {new Date().getFullYear()} {site.name} · MIT licensed · made in the
-          open
+        <p className="label text-muted border-line mt-12 border-t pt-6 leading-relaxed">
+          © {new Date().getFullYear()} {site.name} · this site is MIT licensed ·
+          each project has its own open source license, linked from its repo
         </p>
       </div>
     </footer>

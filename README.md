@@ -142,4 +142,8 @@ are already configured on this repository.
 
 ## License
 
-[MIT](LICENSE) © Paramain. Made in the open, for everyone.
+The code for this site is [MIT](LICENSE) © Paramain. The apps it showcases are
+separate projects, each under its own open source license (several are AGPL-3.0);
+check the license in each project's repository.
+
+Made in the open, for everyone.
