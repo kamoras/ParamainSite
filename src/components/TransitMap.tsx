@@ -138,7 +138,10 @@ export function TransitMap({ className = "" }: { className?: string }) {
 
       {/* The plane. */}
       <g className="fill-surface">
-        <path d="M0 -6 L2 -1 L9 2 L9 4 L2 2 L1 6 L3 8 L3 9 L-3 9 L-3 8 L-1 6 L-2 2 L-9 4 L-9 2 L-2 -1 Z" />
+        {/* Drawn nose-up; rotated so the nose leads along the path (+x). */}
+        <g transform="rotate(90)">
+          <path d="M0 -6 L2 -1 L9 2 L9 4 L2 2 L1 6 L3 8 L3 9 L-3 9 L-3 8 L-1 6 L-2 2 L-9 4 L-9 2 L-2 -1 Z" />
+        </g>
         <animateMotion
           dur="22s"
           repeatCount="indefinite"
