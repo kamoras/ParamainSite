@@ -1,9 +1,6 @@
 /**
- * Paramain emblem — an open doorway with a bright core and a few smaller
- * lights orbiting it: one main project, the rest circling alongside (para ·
- * main), each in its own project colour. The arch and core inherit colour via
- * currentColor; the satellites use the site's accent tokens. They drift
- * slowly, and hold still for anyone who prefers reduced motion.
+ * Paramain emblem — a plain geometric "P" with a small amber dot sitting
+ * beside it ("para" means beside). The P inherits colour via currentColor.
  */
 export function Wordmark({ className }: { className?: string }) {
   return (
@@ -14,17 +11,19 @@ export function Wordmark({ className }: { className?: string }) {
       className={className}
     >
       <path
-        d="M5 28V15a11 11 0 0 1 22 0v13"
+        d="M9 28V4"
         stroke="currentColor"
-        strokeWidth="2.8"
+        strokeWidth="4.4"
         strokeLinecap="round"
       />
-      <circle cx="16" cy="17" r="3.2" fill="currentColor" />
-      <g className="anim-orbit" style={{ transformOrigin: "16px 17px" }}>
-        <circle cx="16" cy="10.4" r="2" fill="var(--color-plum)" />
-        <circle cx="9.6" cy="23.4" r="2" fill="var(--color-teal)" />
-        <circle cx="22.4" cy="23.4" r="2" fill="var(--color-amber)" />
-      </g>
+      <circle
+        cx="17"
+        cy="11.5"
+        r="7.2"
+        stroke="currentColor"
+        strokeWidth="4.4"
+      />
+      <circle cx="26.5" cy="25" r="2.8" fill="var(--color-amber)" />
     </svg>
   );
 }
