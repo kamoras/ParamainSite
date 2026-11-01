@@ -7,9 +7,10 @@ const display = Fraunces({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  // opsz only — keep optical sizing for crisp headings, but no WONK/SOFT
-  // axes so the serifs stay clean and even (not wiggly).
-  axes: ["opsz"],
+  // Load the WONK axis so we can pin it to 0 in CSS. Left unloaded, Fraunces
+  // auto-applies its "wonky" forms at large optical sizes (the leaning h/n/m
+  // and the curled f), which read as wavy in big headings.
+  axes: ["opsz", "WONK"],
 });
 
 const sans = Hanken_Grotesk({

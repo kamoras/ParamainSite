@@ -195,3 +195,8 @@
     animation: none !important;
   }
 }
+
+/* Keep Fraunces' wonky forms off so large headings stay straight and even. */
+.font-display {
+  font-variation-settings: "WONK" 0;
+}
