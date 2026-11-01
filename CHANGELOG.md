@@ -8,6 +8,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- **DBD Manager** is now **Streamer Tools**, at
+  [streamer-tools.paramain.com](https://streamer-tools.paramain.com)
+  (source: [`kamoras/streamer-tools`](https://github.com/kamoras/streamer-tools)).
+  It now bundles multiple Twitch integrations; the latest is Hues and Cues.
 - **Civitas** now lives at
   [civitas-research.org](https://civitas-research.org) (previously
   `civitas.paramain.com`).

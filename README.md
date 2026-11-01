@@ -49,7 +49,7 @@ Smaller side projects, shown as grid cards below the flagship:
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------ |
 | [Linkertree](https://linkertree.paramain.com)              | A free, open-source link-in-bio with no lock-in.                                      | Open   |
 | [Spliced](https://spliced.paramain.com)                    | A daily music puzzle — no ads, ever.                                                  | Open   |
-| [DBD Manager](https://deadbydaylight-manager.paramain.com) | Stream utilities (like a viewer queue) for Twitch streamers playing Dead by Daylight. | Open   |
+| [Streamer Tools](https://streamer-tools.paramain.com) | Interactive Twitch integrations for streamers — a viewer queue, Hues and Cues, and more. | Open   |
 
 > Adding or updating an app is a one-file change: edit
 > [`src/data/apps.ts`](src/data/apps.ts). Set `featured: true` on exactly one
