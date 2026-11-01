@@ -71,7 +71,7 @@ export const apps: ParamainApp[] = [
     highlights: [
       { label: "Runs on", value: "A Raspberry Pi in a spare room" },
       { label: "Models", value: "Open weights, entirely local" },
-      { label: "Source", value: "Open — every line of it" },
+      { label: "Source", value: "Public on GitHub, free to audit" },
       { label: "Cost", value: "$0, no ads, no accounts" },
     ],
   },
