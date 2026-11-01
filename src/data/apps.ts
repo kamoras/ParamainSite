@@ -42,10 +42,8 @@ export interface ParamainApp {
   category: string;
   /** A few keywords / tech highlights. */
   tags: string[];
-  /** Two-character monogram used in the card's emblem. */
-  monogram: string;
   /** Accent theme key — see ACCENTS in components. */
-  accent: "terracotta" | "amber" | "sage" | "plum" | "teal";
+  accent: "ledger" | "azure" | "cobalt" | "violet" | "emerald";
   /** Presentation tier — see {@link AppTier}. */
   tier: AppTier;
   /** Flagship panel only: a few short "at a glance" facts. */
@@ -55,10 +53,10 @@ export interface ParamainApp {
 export const apps: ParamainApp[] = [
   {
     slug: "civitas",
-    name: "Civitas",
+    name: "Civitas Research",
     tagline: "A single pane of glass for the U.S. government",
     description:
-      "The project everything else here orbits. Civitas puts the public record of the U.S. federal government in one place: every member of Congress, the president, federal agencies and the Supreme Court, with votes, bills, campaign money, stock trades and elections, and each figure shown with its source. Members are compared with their peers, never given a grade.",
+      "The project everything else here orbits. Civitas Research puts the public record of the U.S. federal government in one place: every member of Congress, the president, federal agencies and the Supreme Court, with votes, bills, campaign money, stock trades and elections, and each figure shown with its source. Members are compared with their peers, never given a grade.",
     url: "https://civitas-research.org",
     repo: "https://github.com/kamoras/civitas",
     source: "open",
@@ -71,8 +69,7 @@ export const apps: ParamainApp[] = [
       "Elections",
       "Open data",
     ],
-    monogram: "Cv",
-    accent: "terracotta",
+    accent: "ledger",
     tier: "flagship",
     highlights: [
       {
@@ -99,8 +96,7 @@ export const apps: ParamainApp[] = [
     status: "live",
     category: "Transit",
     tags: ["Live map", "Trains & buses", "Flights", "Delays explained"],
-    monogram: "Hl",
-    accent: "teal",
+    accent: "azure",
     tier: "spotlight",
   },
   {
@@ -115,8 +111,7 @@ export const apps: ParamainApp[] = [
     status: "live",
     category: "Games & play",
     tags: ["Daily puzzle", "Music", "Streaks"],
-    monogram: "Sp",
-    accent: "amber",
+    accent: "cobalt",
     tier: "standard",
   },
   {
@@ -126,13 +121,12 @@ export const apps: ParamainApp[] = [
     description:
       "A toolkit of Twitch integrations that put your chat in the game. Started as a Dead by Daylight viewer queue, and has grown into a set of interactive experiences — the latest is Hues and Cues, a colour-guessing party game your community plays together on stream.",
     url: "https://streamer-tools.paramain.com",
-    repo: "https://github.com/kamoras/streamer-tools",
+    repo: "https://github.com/kamoras/stream-tools",
     source: "open",
     status: "live",
     category: "Streaming tools",
     tags: ["Twitch", "Hues and Cues", "Viewer queue", "Chat games"],
-    monogram: "St",
-    accent: "plum",
+    accent: "violet",
     tier: "minor",
   },
   {
@@ -147,8 +141,7 @@ export const apps: ParamainApp[] = [
     status: "live",
     category: "Creator tools",
     tags: ["Self-hostable", "Link-in-bio"],
-    monogram: "Lt",
-    accent: "sage",
+    accent: "emerald",
     tier: "minor",
   },
 ];

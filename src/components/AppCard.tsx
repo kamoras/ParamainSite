@@ -18,12 +18,6 @@ export function AppCard({ app }: { app: ParamainApp }) {
       }
     >
       <div className="relative flex items-start justify-between gap-4">
-        <div
-          className="font-display text-surface flex h-14 w-14 items-center justify-center rounded-md text-2xl font-semibold"
-          style={{ background: "var(--accent)" }}
-        >
-          {app.monogram}
-        </div>
         <div className="flex flex-wrap items-center justify-end gap-2">
           <StatusBadge status={app.status} />
           <SourceBadge source={app.source} />

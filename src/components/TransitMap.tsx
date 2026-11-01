@@ -33,7 +33,7 @@ export function TransitMap({ className = "" }: { className?: string }) {
       aria-hidden="true"
     >
       {/* Faint street grid. */}
-      <g className="stroke-surface/10" strokeWidth="1">
+      <g className="stroke-[#dfe4ec]" strokeWidth="1">
         {[40, 80, 120, 160, 200].map((y) => (
           <path key={`h${y}`} d={`M0 ${y}H400`} />
         ))}
@@ -46,7 +46,7 @@ export function TransitMap({ className = "" }: { className?: string }) {
       <path
         id="hl-line-a"
         d="M14 196C86 196 112 128 192 124S322 76 388 44"
-        className="stroke-teal"
+        className="stroke-hop-navy"
         fill="none"
         strokeWidth="5"
         strokeLinecap="round"
@@ -54,7 +54,7 @@ export function TransitMap({ className = "" }: { className?: string }) {
       <path
         id="hl-line-b"
         d="M18 52C92 52 124 112 196 128S300 202 388 204"
-        className="stroke-terracotta"
+        className="stroke-hop-accent"
         fill="none"
         strokeWidth="5"
         strokeLinecap="round"
@@ -63,7 +63,7 @@ export function TransitMap({ className = "" }: { className?: string }) {
       <path
         id="hl-line-c"
         d="M58 226L176 176 268 146 380 122"
-        className="stroke-amber"
+        className="stroke-hop-muted"
         fill="none"
         strokeWidth="3"
         strokeDasharray="2 7"
@@ -73,7 +73,7 @@ export function TransitMap({ className = "" }: { className?: string }) {
       <path
         id="hl-flight"
         d="M20 120C120 -10 270 -10 380 100"
-        className="stroke-surface/25"
+        className="stroke-hop-muted/40"
         fill="none"
         strokeWidth="1.5"
         strokeDasharray="1 6"
@@ -81,7 +81,7 @@ export function TransitMap({ className = "" }: { className?: string }) {
       />
 
       {/* Stations. */}
-      <g className="fill-ink stroke-surface" strokeWidth="2.5">
+      <g className="fill-hop-surface stroke-hop-navy" strokeWidth="3">
         {[
           [14, 196],
           [192, 124],
@@ -96,7 +96,7 @@ export function TransitMap({ className = "" }: { className?: string }) {
       </g>
 
       {/* "You are here" pulse at the big interchange. */}
-      <circle cx="194" cy="126" r="6" className="fill-surface">
+      <circle cx="194" cy="126" r="6" className="fill-hop-accent">
         <animate
           attributeName="r"
           values="6;22"
@@ -112,32 +112,32 @@ export function TransitMap({ className = "" }: { className?: string }) {
       </circle>
 
       {/* Trains, coloured by delay: on time, a few minutes late, very late. */}
-      <Vehicle path="#hl-line-a" dur="15s" begin="0s" tone="fill-sage" />
+      <Vehicle path="#hl-line-a" dur="15s" begin="0s" tone="fill-hop-ok" />
       <Vehicle
         path="#hl-line-a"
         dur="15s"
         begin="-8s"
-        tone="fill-amber"
+        tone="fill-[#d98a00]"
         reverse
       />
-      <Vehicle path="#hl-line-b" dur="18s" begin="-3s" tone="fill-sage" />
+      <Vehicle path="#hl-line-b" dur="18s" begin="-3s" tone="fill-hop-ok" />
       <Vehicle
         path="#hl-line-b"
         dur="18s"
         begin="-12s"
-        tone="fill-terracotta"
+        tone="fill-hop-bad"
         reverse
       />
       <Vehicle
         path="#hl-line-c"
         dur="13s"
         begin="-5s"
-        tone="fill-amber"
+        tone="fill-[#d98a00]"
         small
       />
 
       {/* The plane. */}
-      <g className="fill-surface">
+      <g className="fill-hop-navy">
         {/* Drawn nose-up; rotated so the nose leads along the path (+x). */}
         <g transform="rotate(90)">
           <path d="M0 -6 L2 -1 L9 2 L9 4 L2 2 L1 6 L3 8 L3 9 L-3 9 L-3 8 L-1 6 L-2 2 L-9 4 L-9 2 L-2 -1 Z" />
@@ -172,7 +172,7 @@ function Vehicle({
 }) {
   const r = small ? 4 : 6;
   return (
-    <g className={`${tone} stroke-ink`} strokeWidth="2">
+    <g className={`${tone} stroke-white`} strokeWidth="2">
       <circle r={r} />
       <animateMotion
         dur={dur}

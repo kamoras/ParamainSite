@@ -7,7 +7,7 @@
 **Software should be accessible to everyone.**
 
 The showcase site for [Paramain](https://paramain.com) — a portfolio of free,
-independent apps led by [Civitas](https://civitas-research.org). Open source all
+independent apps led by [Civitas Research](https://civitas-research.org). Open source all
 the way down, with no ads, no lock-in, and no surveillance.
 
 [![Built with Next.js](https://img.shields.io/badge/Next.js-16-000?logo=next.js)](https://nextjs.org)
@@ -32,7 +32,7 @@ template for your own portfolio.
 
 ### The flagship
 
-**[Civitas](https://civitas-research.org)** — `civitas-research.org` — is the
+**[Civitas Research](https://civitas-research.org)** — `civitas-research.org` — is the
 project the site is built around. It's a single pane of glass for the U.S.
 federal government: members of Congress, the president, agencies and the
 Supreme Court, with every figure shown alongside its source. Originally closed
@@ -55,7 +55,9 @@ The rest of the portfolio, shown in descending order of priority below the flags
 > Adding or updating an app is a one-file change: edit
 > [`src/data/apps.ts`](src/data/apps.ts). Each app has a `tier`
 > (`flagship`, `spotlight`, `standard` or `minor`) that decides how loudly it is
-> shown, and the order of the list is the priority order.
+> shown, and the order of the list is the priority order. Each project's card
+> is styled after the real project (palette, typeface, logo) — see the
+> components named in `AppsSection.tsx`.
 
 ## Tech stack
 

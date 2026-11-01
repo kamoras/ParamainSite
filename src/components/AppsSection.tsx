@@ -1,5 +1,4 @@
 import {
-  displayDomain,
   featuredApp,
   minorApps,
   spotlightApp,
@@ -9,8 +8,8 @@ import { AppCard } from "./AppCard";
 import { FeaturedApp } from "./FeaturedApp";
 import { Reveal } from "./Reveal";
 import { SpotlightApp } from "./SpotlightApp";
-import { WideApp } from "./WideApp";
-import { APP_VISUALS } from "./visuals";
+import { SplicedApp } from "./SplicedApp";
+import { MinorApp } from "./MinorApp";
 
 /**
  * The portfolio, loudest to quietest: the flagship panel, the spotlight panel,
@@ -67,8 +66,8 @@ export function AppsSection() {
             <div className="mt-10 grid gap-6">
               {standardApps.map((app, i) => (
                 <Reveal as="div" key={app.slug} delay={i * 90}>
-                  {APP_VISUALS[app.slug] ? (
-                    <WideApp app={app} visual={APP_VISUALS[app.slug]} />
+                  {app.slug === "spliced" ? (
+                    <SplicedApp app={app} />
                   ) : (
                     <AppCard app={app} />
                   )}
@@ -83,24 +82,7 @@ export function AppsSection() {
             <h2 className="label text-ink-soft">04 · Smaller tools</h2>
             <ul className="divide-line border-line mt-4 divide-y border-y">
               {minorApps.map((app) => (
-                <li key={app.slug} id={app.slug} className="scroll-mt-24">
-                  <a
-                    href={app.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group hover:bg-surface/60 -mx-3 flex flex-wrap items-baseline gap-x-4 gap-y-1 rounded-xl px-3 py-4 transition-colors"
-                  >
-                    <span className="font-display text-ink text-lg font-medium">
-                      {app.name}
-                    </span>
-                    <span className="text-ink-soft min-w-0 flex-1 text-sm">
-                      {app.tagline}
-                    </span>
-                    <span className="text-ink-soft group-hover:text-ink font-mono text-xs transition-colors">
-                      {displayDomain(app.url)}
-                    </span>
-                  </a>
-                </li>
+                <MinorApp key={app.slug} app={app} />
               ))}
             </ul>
           </div>

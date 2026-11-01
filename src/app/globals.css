@@ -24,6 +24,85 @@
   --color-line-strong: #1d1b18;
   --color-mark: #f2cf4a;
 
+  --font-wordmark:
+    var(--font-wordmark-loaded), "Archivo", ui-sans-serif, system-ui, sans-serif;
+
+  /* Civitas Research's own palette, taken from civitas-research.org
+     ("register paper"): parchment, paper, sunk wash, ink, ledger green, the
+     search-match highlight, and the party marks from its maps. */
+  --color-parchment: #f5efe2;
+  --color-paper: #fbf8f1;
+  --color-register: #ece4d3;
+  --color-civ-ink: #1e1a15;
+  --color-civ-ink-lo: #433b31;
+  --color-ledger: #1b5e34;
+  --color-ledger-soft: #dbe7da;
+  --color-civ-mark: #ecdc8f;
+  --color-dem: #2552a3;
+  --color-rep: #a12a24;
+  --color-ind: #6b4699;
+  --color-chart-muted: #8a7f6c;
+  --color-chart-faint: #c9bfa9;
+  --color-chart-gold: #8c6a2e;
+
+  --font-inter:
+    var(--font-inter-loaded), "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Hopline (hopline.paramain.com): navy brand, blue accent, calm greys, and
+     green / amber / red status colours for on time / late / very late. */
+  --color-hop-bg: #f6f7f9;
+  --color-hop-surface: #ffffff;
+  --color-hop-line: #e2e5eb;
+  --color-hop-text: #11151c;
+  --color-hop-muted: #5d6676;
+  --color-hop-navy: #12315e;
+  --color-hop-accent: #2b6bea;
+  --color-hop-light: #9cc0ff;
+  --color-hop-ok: #0d7a3f;
+  --color-hop-ok-bg: #e3f5eb;
+  --color-hop-warn: #a35a00;
+  --color-hop-warn-bg: #fff1d6;
+  --color-hop-bad: #c0261f;
+  --color-hop-bad-bg: #fde6e4;
+
+  /* Spliced ("Studio Day", an 80s analog mixing console): putty paint,
+     masking tape, cream caps, teal LEDs and a red index line. */
+  --color-putty: #bfb6a2;
+  --color-console: #d8d0bf;
+  --color-console-hi: #ebe5d7;
+  --color-console-lo: #cbc2ae;
+  --color-groove: #a89f8a;
+  --color-silk: #2a251d;
+  --color-tape: #f3ead0;
+  --color-marker: #1e2a5a;
+  --color-cap: #ece6d8;
+  --color-cap-edge: #9a917c;
+  --color-window: #1b1f21;
+  --color-trace: #d9e6dc;
+  --color-lcd: #a9b89a;
+  --color-lcd-ink: #1d2a22;
+  --color-vu-face: #f4e9c8;
+  --color-led: #57f2d6;
+  --color-clip-red: #e0261b;
+  --color-console-blue: #2c5aa0;
+
+  --font-silk:
+    "Eurostile", "Microgramma D Extended", "Bank Gothic", "DIN Alternate",
+    "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
+  --font-marker:
+    "Marker Felt", "Bradley Hand", "Segoe Print", "Chalkboard SE", "Comic Neue",
+    ui-rounded, system-ui, sans-serif;
+
+  /* Stream tools (dark UI, violet accent, rainbow). */
+  --color-stream-bg: #0e1016;
+  --color-stream-surface: #171a23;
+  --color-stream-border: #2c3142;
+  --color-stream-accent: #8b7bff;
+
+  /* Linkertree's green mark. */
+  --color-link-green: #43e660;
+  --color-link-green-deep: #1b5e2b;
+
   /* Project colours. */
   --color-terracotta: #c2552d;
   --color-terracotta-soft: #f3d9cb;
@@ -282,5 +361,34 @@
   .anim-bar,
   .anim-playhead {
     animation: none;
+  }
+}
+
+/* Spliced's console: the VU needle swings, and the type is silkscreened. */
+@keyframes needle {
+  0%,
+  100% {
+    transform: rotate(-38deg);
+  }
+  35% {
+    transform: rotate(22deg);
+  }
+  60% {
+    transform: rotate(-12deg);
+  }
+  80% {
+    transform: rotate(34deg);
+  }
+}
+
+.anim-needle {
+  transform-origin: 50px 56px;
+  animation: needle 4.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-needle {
+    animation: none;
+    transform: rotate(10deg);
   }
 }

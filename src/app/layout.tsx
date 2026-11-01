@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Source_Serif_4 } from "next/font/google";
+import {
+  Archivo,
+  IBM_Plex_Mono,
+  Inter,
+  Source_Serif_4,
+} from "next/font/google";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -11,6 +16,22 @@ const display = Source_Serif_4({
   // display sizes. Fraunces (wavy f) and Newsreader (hairline f/t that
   // collide when tightly tracked) were both tried and rejected.
   axes: ["opsz"],
+});
+
+// Archivo 800 is the Civitas Research wordmark's face, used for that and
+// nothing else (it mirrors civitas-research.org).
+const wordmark = Archivo({
+  subsets: ["latin"],
+  weight: "800",
+  variable: "--font-wordmark-loaded",
+  display: "swap",
+});
+
+// Inter is Hopline's typeface; it is used only inside Hopline's own card.
+const hoplineSans = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter-loaded",
+  display: "swap",
 });
 
 const mono = IBM_Plex_Mono({
@@ -72,7 +93,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${mono.variable} ${wordmark.variable} ${hoplineSans.variable}`}
+    >
       <body>
         <a href="#main" className="skip-link">
           Skip to content

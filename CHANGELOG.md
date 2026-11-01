@@ -12,6 +12,11 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+- **Civitas** is now shown as **Civitas Research** and its "Cv" monogram is
+  gone (the `monogram` field is removed). Every project's card now takes its
+  look from the real project: Civitas Research's register-paper palette and
+  wordmark, Hopline's navy mark, Inter and delay pills, Spliced's analog
+  mixing console, and each smaller tool's own mark and type.
 - Shared promises (free, open source, no ads, no lock-in, no surveillance) are
   now stated once in the hero instead of repeated on every project. Cards,
   tags, and highlights now only mention what is unique to each project, and
@@ -30,7 +35,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   wavy "f" looked uneven in large headings.
 - **DBD Manager** is now **Streamer Tools**, at
   [streamer-tools.paramain.com](https://streamer-tools.paramain.com)
-  (source: [`kamoras/streamer-tools`](https://github.com/kamoras/streamer-tools)).
+  (source: [`kamoras/stream-tools`](https://github.com/kamoras/stream-tools)).
   It now bundles multiple Twitch integrations; the latest is Hues and Cues.
 - **Civitas** now lives at
   [civitas-research.org](https://civitas-research.org) (previously
