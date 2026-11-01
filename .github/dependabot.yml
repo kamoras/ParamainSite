@@ -16,6 +16,10 @@ updates:
       # validated against ESLint 9). Unpin once support lands.
       - dependency-name: "eslint"
         update-types: ["version-update:semver-major"]
+      # typescript-eslint (via eslint-config-next) doesn't support TypeScript 7
+      # yet and fails lint. Unpin once it does.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: "/"
